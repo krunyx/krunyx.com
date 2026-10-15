@@ -1,0 +1,213 @@
+/* krunyx 사이트 스타일.
+   색은 아래 토큰만 바꾸면 사이트 전체가 따라 바뀐다.
+   청자(celadon) 녹청색 하나만 강조색으로 쓴다. */
+
+:root {
+  --kx-paper: #F6F7F4;
+  --kx-ink: #18222D;
+  --kx-muted: #5B6670;
+  --kx-rule: #D5DBD6;
+  --kx-celadon: #3B7A70;
+  --kx-celadon-strong: #2C5F57;
+  --kx-celadon-wash: #E3EEEA;
+  --kx-code-bg: #EDF0EC;
+}
+
+[data-md-color-scheme="slate"] {
+  --kx-paper: #141B22;
+  --kx-ink: #E6EAE7;
+  --kx-muted: #9AA6AE;
+  --kx-rule: #2B3640;
+  --kx-celadon: #86C1B5;
+  --kx-celadon-strong: #A6D5CB;
+  --kx-celadon-wash: #1D2C2D;
+  --kx-code-bg: #1A232B;
+}
+
+/* Material 색 토큰을 우리 토큰에 연결 */
+[data-md-color-primary="custom"] {
+  --md-primary-fg-color: var(--kx-paper);
+  --md-primary-fg-color--light: var(--kx-paper);
+  --md-primary-fg-color--dark: var(--kx-paper);
+  --md-primary-bg-color: var(--kx-ink);
+  --md-primary-bg-color--light: var(--kx-muted);
+}
+[data-md-color-accent="custom"] {
+  --md-accent-fg-color: var(--kx-celadon-strong);
+  --md-accent-fg-color--transparent: var(--kx-celadon-wash);
+}
+[data-md-color-scheme="default"],
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: var(--kx-paper);
+  --md-default-fg-color: var(--kx-ink);
+  --md-default-fg-color--light: var(--kx-muted);
+  --md-typeset-color: var(--kx-ink);
+  --md-typeset-a-color: var(--kx-celadon);
+  --md-code-bg-color: var(--kx-code-bg);
+  --md-footer-bg-color: var(--kx-paper);
+  --md-footer-bg-color--dark: var(--kx-paper);
+  --md-footer-fg-color: var(--kx-ink);
+  --md-footer-fg-color--light: var(--kx-muted);
+  --md-footer-fg-color--lighter: var(--kx-muted);
+}
+
+/* 머리글과 탭: 그림자 대신 가는 선 하나 */
+.md-header,
+.md-header--shadow { box-shadow: none; }
+.md-tabs { border-bottom: 1px solid var(--kx-rule); }
+.md-header { border-bottom: 1px solid transparent; }
+.md-tabs__link { opacity: 0.8; font-size: 0.72rem; }
+.md-tabs__item--active .md-tabs__link { opacity: 1; color: var(--kx-celadon); }
+.md-header__button.md-logo img { height: 1.5rem; }
+.md-footer { border-top: 1px solid var(--kx-rule); }
+.md-footer-meta { background: var(--kx-paper); }
+
+/* 한글은 어절 단위로 줄을 바꾼다 */
+body { word-break: keep-all; overflow-wrap: break-word; }
+
+/* 검색창을 머리글 바탕에 맞춘다 */
+.md-search__form { background-color: var(--kx-code-bg); }
+.md-search__form:hover { background-color: var(--kx-celadon-wash); }
+.md-search__input::placeholder,
+.md-search__input + .md-search__icon { color: var(--kx-muted); }
+.md-search__input { color: var(--kx-ink); }
+
+/* 본문 활자 */
+.md-typeset { font-size: 0.85rem; line-height: 1.75; }
+.md-typeset h1 { font-weight: 600; color: var(--kx-ink); letter-spacing: -0.01em; }
+.md-typeset h2 { font-weight: 600; letter-spacing: -0.005em; }
+.md-typeset h3 { font-weight: 600; font-size: 1em; margin-top: 0; }
+.md-content__inner > p,
+.md-content__inner > ul,
+.md-content__inner > ol { max-width: 40em; }
+
+/* 버튼: 채운 것 하나와 테두리만 있는 것 하나.
+   첫 화면은 .md-typeset 밖에 있으므로 .kx-hero 에도 같은 규칙을 건다. */
+.kx-hero .md-button { display: inline-block; font-size: 0.8rem; border: 1.5px solid; }
+.md-typeset .md-button,
+.kx-hero .md-button {
+  border-radius: 6px;
+  border-width: 1.5px;
+  border-color: var(--kx-celadon);
+  color: var(--kx-celadon);
+  font-weight: 600;
+  padding: 0.55em 1.3em;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+.md-typeset .md-button--primary,
+.kx-hero .md-button--primary {
+  background: var(--kx-celadon);
+  color: var(--kx-paper);
+}
+.md-typeset .md-button:hover,
+.md-typeset .md-button:focus-visible,
+.kx-hero .md-button:hover,
+.kx-hero .md-button:focus-visible {
+  background: var(--kx-celadon-strong);
+  border-color: var(--kx-celadon-strong);
+  color: var(--kx-paper);
+}
+.md-typeset .md-button:focus-visible,
+.kx-hero a:focus-visible { outline: 2px solid var(--kx-celadon); outline-offset: 3px; }
+
+/* ---------- 홈: 첫 화면 ---------- */
+.kx-hero { border-bottom: 1px solid var(--kx-rule); }
+.kx-hero__inner {
+  max-width: 61rem;
+  margin: 0 auto;
+  padding: 4rem 1.2rem 3.5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 3rem;
+  align-items: center;
+}
+.kx-hero h1 {
+  font-size: 2.1rem;
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--kx-ink);
+  margin: 0 0 1rem;
+}
+.kx-hero__lede { font-size: 0.95rem; line-height: 1.75; color: var(--kx-muted); max-width: 30em; margin: 0 0 1.6rem; }
+.kx-hero__actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.kx-hero__actions .md-button { margin: 0; }
+.kx-hero__meta { font-size: 0.7rem; color: var(--kx-muted); margin-top: 1.2rem; }
+
+/* 원본과 화면을 맞붙인 예시. 이 사이트에서 가장 눈에 띄어야 할 단 하나의 요소. */
+.kx-demo {
+  margin: 0;
+  display: grid;
+  grid-template-rows: auto auto;
+  border: 1px solid var(--kx-rule);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--kx-paper);
+}
+.kx-demo__pane { padding: 1rem 1.2rem 1.1rem; }
+.kx-demo__file { font-size: 0.62rem; color: var(--kx-muted); margin-bottom: 0.5rem; }
+.kx-demo__pane--source { background: var(--kx-code-bg); border-bottom: 1px solid var(--kx-rule); }
+.kx-demo__pane--source pre { margin: 0; }
+.kx-demo__pane--source code {
+  font-family: var(--md-code-font-family);
+  font-size: 0.68rem;
+  line-height: 1.6;
+  color: var(--kx-ink);
+  background: none;
+  padding: 0;
+  white-space: pre;
+}
+.kx-demo__pane--render { font-size: 0.8rem; line-height: 1.7; }
+.kx-demo__pane--render p { margin: 0.3rem 0; }
+.kx-demo__h { font-size: 0.95rem; font-weight: 600; margin: 0 0 0.4rem; }
+.kx-demo__eq { display: grid; grid-template-columns: 1fr auto; align-items: center; }
+.kx-demo__eqno { color: var(--kx-muted); font-size: 0.75rem; }
+.kx-demo__pane--render a { color: var(--kx-celadon); }
+
+/* ---------- 홈: 스택 ---------- */
+.md-typeset .kx-stack { max-width: 44rem; margin: 1.5rem 0; display: grid; gap: 0.45rem; }
+.md-typeset .kx-stack__layer {
+  display: grid;
+  grid-template-columns: 9rem 1fr auto;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 0.85rem 1.1rem;
+  border: 1.5px solid var(--kx-rule);
+  border-radius: 8px;
+}
+.md-typeset a.kx-stack__layer { color: inherit; }
+.md-typeset .kx-stack__layer--live { border-color: var(--kx-celadon); background: var(--kx-celadon-wash); }
+.md-typeset a.kx-stack__layer--live:hover .kx-stack__name { color: var(--kx-celadon); }
+.kx-stack__name { font-weight: 600; }
+.kx-stack__desc { color: var(--kx-muted); font-size: 0.8rem; }
+.kx-stack__status { font-size: 0.7rem; color: var(--kx-muted); white-space: nowrap; }
+.kx-stack__layer--live .kx-stack__status { color: var(--kx-celadon); font-weight: 600; }
+
+/* ---------- 홈: HyperTeX 특징 ---------- */
+.md-typeset .kx-points {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.8rem;
+  margin: 1.5rem 0 2rem;
+}
+.md-typeset .kx-points > div { border-left: 2px solid var(--kx-celadon); padding-left: 1rem; }
+.md-typeset .kx-points p { font-size: 0.8rem; color: var(--kx-muted); margin: 0.3rem 0 0; }
+
+/* 홈의 본문 폭을 첫 화면과 맞춘다 */
+.md-main__inner:has(.kx-stack) { max-width: 61rem; margin-top: 0.8rem; }
+.md-main__inner:has(.kx-stack) .md-typeset > h2:first-child { margin-top: 0.6rem; }
+
+/* ---------- 좁은 화면 ---------- */
+@media (max-width: 60em) {
+  .kx-hero__inner { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem 1rem 2.5rem; }
+  .kx-hero h1 { font-size: 1.6rem; }
+  .md-typeset .kx-points { grid-template-columns: 1fr; gap: 1.2rem; }
+}
+@media (max-width: 36em) {
+  .md-typeset .kx-stack__layer { grid-template-columns: 1fr auto; }
+  .kx-stack__desc { grid-column: 1 / -1; grid-row: 2; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .md-typeset .md-button { transition: none; }
+}
