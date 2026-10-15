@@ -1,0 +1,55 @@
+{% extends "main.html" %}
+
+{#- 홈 화면 전용 템플릿. docs/index.md 의 front matter 에서 template: home.html 로 쓴다.
+    첫 화면(hero)만 여기서 그리고, 그 아래 내용은 index.md 의 마크다운이 채운다. -#}
+
+{% block tabs %}
+  {{ super() }}
+  <section class="kx-hero" aria-labelledby="kx-hero-title">
+    <div class="kx-hero__inner">
+      <div class="kx-hero__copy">
+        <h1 id="kx-hero-title">TeX으로 쓰는 웹부터 시작합니다</h1>
+        <p class="kx-hero__lede">
+          krunyx는 과학자가 쓰는 컴퓨터를 처음부터 다시 만듭니다.
+          첫 결과물인 HyperTeX는 LaTeX 문법으로 쓴 문서를 웹 페이지처럼 열고,
+          링크로 서로 잇는 브라우저입니다.
+        </p>
+        <div class="kx-hero__actions">
+          <a class="md-button md-button--primary" href="{{ 'hypertex/download/' | url }}">HyperTeX 내려받기</a>
+          <a class="md-button" href="{{ 'hypertex/' | url }}">HyperTeX 알아보기</a>
+        </div>
+        <p class="kx-hero__meta">
+          v{{ config.extra.hypertex.version }} &nbsp;|&nbsp; macOS, Windows, Linux &nbsp;|&nbsp; Apache-2.0 오픈소스
+        </p>
+      </div>
+
+      <figure class="kx-demo" aria-label="HyperTeX 문서의 원본과 화면">
+        <div class="kx-demo__pane kx-demo__pane--source">
+          <div class="kx-demo__file">oscillator.htex</div>
+<pre><code>\section{해밀토니안}\label{sec:H}
+질량 $m$, 진동수 $\omega$인
+조화 진동자의 해밀토니안은
+\begin{equation}\label{eq:H}
+  H = \frac{p^2}{2m}
+    + \frac{1}{2} m\omega^2 x^2
+\end{equation}
+이고, 고윳값은 정리~\ref{thm:levels}.</code></pre>
+        </div>
+        <div class="kx-demo__pane kx-demo__pane--render">
+          <div class="kx-demo__file">HyperTeX에서 열었을 때</div>
+          <h2 class="kx-demo__h">1&ensp;해밀토니안</h2>
+          <p>질량 <span class="arithmatex">\(m\)</span>, 진동수 <span class="arithmatex">\(\omega\)</span>인 조화 진동자의 해밀토니안은</p>
+          <div class="kx-demo__eq">
+            <span class="arithmatex">\[ H = \frac{p^2}{2m} + \frac{1}{2} m\omega^2 x^2 \]</span>
+            <span class="kx-demo__eqno">(1)</span>
+          </div>
+          <p>이고, 고윳값은 <a href="{{ 'hypertex/' | url }}">정리 1</a>.</p>
+        </div>
+      </figure>
+    </div>
+  </section>
+{% endblock %}
+
+{% block content %}
+  {{ page.content }}
+{% endblock %}

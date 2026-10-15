@@ -1,0 +1,91 @@
+site_name: krunyx
+site_url: https://krunyx.com/
+site_description: 과학자를 위한 컴퓨팅 환경을 만듭니다. 첫 제품은 TeX으로 쓰는 웹, HyperTeX입니다.
+site_author: krunyx
+copyright: © 2026 krunyx
+
+repo_url: https://github.com/krunyx/hypertex
+repo_name: hypertex
+edit_uri: ""
+
+theme:
+  name: material
+  custom_dir: overrides
+  language: ko
+  logo: assets/images/krunyx-mark.svg
+  favicon: assets/images/krunyx-mark.svg
+  font:
+    text: IBM Plex Sans KR
+    code: IBM Plex Mono
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: 어두운 화면으로
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: 밝은 화면으로
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.footer
+    - navigation.top
+    - search.suggest
+    - content.code.copy
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/github
+
+nav:
+  - 홈: index.md
+  - HyperTeX:
+      - 소개: hypertex/index.md
+      - 내려받기: hypertex/download.md
+      - 시작하기: hypertex/getting-started.md
+      - 인용하기: hypertex/cite.md
+      - 변경 기록: hypertex/changelog.md
+  - 로드맵: roadmap.md
+  - 보안: security.md
+  - 회사: about.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+extra_javascript:
+  - assets/javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+extra:
+  generator: false
+  hypertex:
+    version: "0.1.0"
+    releases: https://github.com/krunyx/hypertex/releases/latest
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/krunyx
+      name: krunyx on GitHub
+    - icon: fontawesome/solid/envelope
+      link: mailto:hello@krunyx.com
+      name: hello@krunyx.com
