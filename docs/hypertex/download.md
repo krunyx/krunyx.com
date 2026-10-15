@@ -1,6 +1,7 @@
 # Download HyperTeX
 
-The latest version is **v0.1.0**. All installers are on the [GitHub releases page](https://github.com/krunyx/hypertex/releases/latest).
+The latest version is **v0.2.0** (October 2026). See [what's new](changelog.md#v0-2-0).
+All installers are also on the [GitHub releases page](https://github.com/krunyx/hypertex/releases/latest).
 
 [Open the latest release](https://github.com/krunyx/hypertex/releases/latest){ .md-button .md-button--primary }
 
@@ -8,10 +9,10 @@ The latest version is **v0.1.0**. All installers are on the [GitHub releases pag
 
 === "macOS"
 
-    | File | For |
+    | Download | For |
     | --- | --- |
-    | `HyperTeX-<version>-macos-arm64.dmg` | Apple silicon (M1 and later) |
-    | `HyperTeX-<version>-macos-x86_64.dmg` | Intel Macs |
+    | [HyperTeX-0.2.0-macos-arm64.dmg](https://github.com/krunyx/hypertex/releases/download/v0.2.0/HyperTeX-0.2.0-macos-arm64.dmg) | Apple silicon (M1 and later) |
+    | [HyperTeX-0.2.0-macos-x86_64.dmg](https://github.com/krunyx/hypertex/releases/download/v0.2.0/HyperTeX-0.2.0-macos-x86_64.dmg) | Intel Macs |
 
     1. Open the `.dmg` file.
     2. Drag HyperTeX into your Applications folder.
@@ -19,20 +20,22 @@ The latest version is **v0.1.0**. All installers are on the [GitHub releases pag
 
 === "Windows"
 
-    | File | For |
+    | Download | For |
     | --- | --- |
-    | `HyperTeX-Setup-<version>.exe` | Windows 10 and 11 |
+    | [HyperTeX-Setup-0.2.0.exe](https://github.com/krunyx/hypertex/releases/download/v0.2.0/HyperTeX-Setup-0.2.0.exe) | Installer for Windows 10 and 11 |
+    | [HyperTeX-0.2.0-windows-x64.zip](https://github.com/krunyx/hypertex/releases/download/v0.2.0/HyperTeX-0.2.0-windows-x64.zip) | Portable version: unzip and run `htex-viewer\htex-viewer.exe` |
 
-    Installs without administrator rights. After installing, `.htex` files and `htex://` links open in HyperTeX.
+    The installer works without administrator rights. After installing, `.htex` files and `htex://` links open in HyperTeX.
+    The portable version does not register file types or links.
 
     If a "Windows protected your PC" window appears, click **More info → Run anyway**.
 
 === "Linux"
 
-    | File | How to install |
+    | Download | How to install |
     | --- | --- |
-    | `HyperTeX-<version>-x86_64.AppImage` | Make it executable and run it |
-    | `HyperTeX-<version>-linux-x86_64.tar.gz` | Unpack and run `install.sh` |
+    | [HyperTeX-0.2.0-x86_64.AppImage](https://github.com/krunyx/hypertex/releases/download/v0.2.0/HyperTeX-0.2.0-x86_64.AppImage) | Make it executable and run it |
+    | [HyperTeX-0.2.0-linux-x86_64.tar.gz](https://github.com/krunyx/hypertex/releases/download/v0.2.0/HyperTeX-0.2.0-linux-x86_64.tar.gz) | Unpack and run `install.sh` |
 
     AppImage:
 
@@ -52,6 +55,7 @@ The latest version is **v0.1.0**. All installers are on the [GitHub releases pag
 !!! note "About the install warnings"
     This version is not yet code-signed by Apple or Microsoft, so your system warns on first launch.
     The installers are built by GitHub Actions directly from the public source code. Signing is planned for a future release.
+    To check a download, compare its SHA-256 with [SHA256SUMS.txt](https://github.com/krunyx/hypertex/releases/download/v0.2.0/SHA256SUMS.txt).
 
 ## Install with Python
 
