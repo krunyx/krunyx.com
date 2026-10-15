@@ -2,49 +2,49 @@
 
 <img src="../assets/images/hypertex-icon.svg" alt="" width="72" align="right">
 
-HyperTeX는 HTML 대신 LaTeX 문법으로 쓰는 웹 문서 형식, **HyperTeX 2.0**과 그 문서를 읽는 브라우저입니다.
+HyperTeX is **HyperTeX 2.0**, a web document format that uses LaTeX syntax instead of HTML, together with a browser for reading it.
 
-1990년대에 웹의 하이퍼텍스트 언어가 HTML이 아니라 TeX이었다면 어땠을까 하는 질문에서 출발했습니다.
-과학자는 이미 LaTeX으로 생각하고 씁니다. 그 문서를 PDF로 굳히지 않고, 웹 페이지처럼 열고 서로 링크할 수 있게 하는 것이 목표입니다.
+It started from a question: what if the web's hypertext language had been TeX rather than HTML in the 1990s?
+Scientists already think and write in LaTeX. HyperTeX aims to let those documents open like web pages and link to one another, instead of being frozen into PDFs.
 
-[내려받기](download.md){ .md-button .md-button--primary }
-[시작하기](getting-started.md){ .md-button }
+[Download](download.md){ .md-button .md-button--primary }
+[Get started](getting-started.md){ .md-button }
 
-## 무엇을 할 수 있나요
+## What it does
 
-- **`.htex` 문서 읽기**: 수식 번호, 상호참조, 정리 환경, 접힌 증명, 단계별 유도를 그대로 보여 줍니다.
-- **기존 `.tex` 파일 열기**: 확장자를 그대로 두면 호환 모드로 읽습니다.
-- **문서끼리 링크하기**: `htex://` 주소와 일반 웹 주소로 다른 문서에 연결합니다.
-- **그림 그리기**: TikZ와 pgfplots의 부분집합을 SVG로 그립니다.
-- **매개변수 움직이기**: `\parameter`로 선언한 값을 슬라이더로 바꾸면 수식과 그래프가 따라 바뀝니다.
-- **한글 수식**: 수식 안의 한글을 그리스 문자처럼 다루고 고딕체로 씁니다.
-- **일반 브라우저로도 보기**: 문서를 HTML과 MathML로 바꾸거나 정적 웹사이트로 빌드합니다.
+- **Reads `.htex` documents**: equation numbers, cross-references, theorem environments, collapsible proofs and step-by-step derivations, exactly as written.
+- **Opens existing `.tex` files**: keep the extension and they load in compatibility mode.
+- **Links documents together**: through `htex://` addresses and ordinary web URLs.
+- **Draws figures**: a subset of TikZ and pgfplots rendered as SVG.
+- **Makes parameters interactive**: values declared with `\parameter` become sliders, and equations and plots follow them.
+- **Handles Hangul in math**: Korean letters in formulas are treated like Greek letters and set in a sans-serif face.
+- **Works in ordinary browsers too**: convert documents to HTML with MathML, or build them into a static website.
 
-## 모르는 명령은 건너뜁니다
+## Unknown commands are skipped
 
-HyperTeX는 처리하지 못하는 명령을 만나도 멈추지 않습니다. 그 명령만 그리지 않고 넘어가서 나머지 문서를 보여 줍니다.
-매크로 확장이 한도를 넘으면 그 자리에 빨간 오류 표시를 남깁니다.
+When HyperTeX meets a command it cannot handle, it does not stop. It leaves that command out and shows the rest of the document.
+If macro expansion exceeds its limit, a red error marker appears in place.
 
-## 구성
+## Components
 
-| 구성 요소 | 하는 일 |
+| Component | What it does |
 | --- | --- |
-| 파서 | `.htex`와 `.tex` 원본을 문서 트리로 바꿉니다 |
-| HTML 변환기 | 문서 트리를 HTML과 MathML로 그립니다 |
-| 그림 렌더러 | TikZ와 pgfplots 그림을 SVG로 바꿉니다 |
-| 뷰어 | 탭과 주소창을 갖춘 데스크톱 브라우저 (PySide6) |
-| 웹 서버 | 일반 브라우저에서 문서를 볼 수 있게 제공합니다 |
+| Parser | Turns `.htex` and `.tex` sources into a document tree |
+| HTML renderer | Renders the tree as HTML with MathML |
+| Figure renderer | Converts TikZ and pgfplots figures to SVG |
+| Viewer | A desktop browser with tabs and an address bar (PySide6) |
+| Web server | Serves documents to ordinary browsers |
 
-파서, 변환기, 서버는 파이썬 표준 라이브러리만 씁니다.
+The parser, renderer and server use only the Python standard library.
 
-## 명세
+## Specification
 
-형식의 정의는 저장소의 문서에 있습니다.
+The format is defined in the repository.
 
-- [HyperTeX 2.0 명세](https://github.com/krunyx/hypertex/blob/main/docs/spec.md)
-- [상호작용 규약](https://github.com/krunyx/hypertex/blob/main/docs/interaction-protocol.md)
+- [HyperTeX 2.0 specification](https://github.com/krunyx/hypertex/blob/main/docs/spec.md)
+- [Interaction protocol](https://github.com/krunyx/hypertex/blob/main/docs/interaction-protocol.md)
 
-## 라이선스
+## License
 
-HyperTeX는 [Apache License 2.0](https://github.com/krunyx/hypertex/blob/main/LICENSE)으로 공개된 오픈소스입니다.
-개인, 연구, 상업 목적 모두 자유롭게 쓰고 고치고 배포할 수 있습니다.
+HyperTeX is open source under the [Apache License 2.0](https://github.com/krunyx/hypertex/blob/main/LICENSE).
+You may use, modify and distribute it freely for personal, research and commercial work.
