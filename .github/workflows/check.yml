@@ -1,0 +1,20 @@
+# 끌어오기 요청(PR)과 push 때마다 사이트가 깨지지 않고 빌드되는지 확인한다.
+# 실제 배포는 Cloudflare Pages가 저장소를 보고 자동으로 한다 (README 참고).
+name: Check site build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: mkdocs build --strict

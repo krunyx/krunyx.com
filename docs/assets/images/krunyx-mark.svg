@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="krunyx">
+  <!-- 네 층의 스택: 하드웨어, OS, AI, 응용. 맨 위 층만 채워 '지금 쓸 수 있는 층'을 뜻한다. -->
+  <rect x="4" y="5"  width="24" height="4.5" rx="1.2" fill="#3B7A70"/>
+  <rect x="4" y="11.5" width="24" height="4.5" rx="1.2" fill="none" stroke="#3B7A70" stroke-width="1.6"/>
+  <rect x="4" y="18" width="24" height="4.5" rx="1.2" fill="none" stroke="#3B7A70" stroke-width="1.6"/>
+  <rect x="4" y="24.5" width="24" height="4.5" rx="1.2" fill="none" stroke="#3B7A70" stroke-width="1.6"/>
+</svg>
