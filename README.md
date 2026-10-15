@@ -33,20 +33,23 @@ mkdocs serve
 3. `docs/hypertex/changelog.md` 맨 위에 항목을 추가합니다.
 4. `docs/hypertex/cite.md`의 `version`을 바꿉니다.
 
-## 배포 (Cloudflare Pages)
+## 배포 (Cloudflare Workers)
 
-처음 한 번만 설정합니다.
+Cloudflare Workers가 저장소를 보고 빌드와 배포를 합니다. 설정은 저장소의 두 파일에 들어 있습니다.
 
-1. Cloudflare 대시보드 → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**
-2. GitHub에서 `krunyx/krunyx.com` 저장소를 고릅니다.
+- `wrangler.jsonc`: 빌드 결과 `site/` 폴더를 정적 파일로 올리고, 없는 주소는 `404.html`로 보냅니다.
+- `.python-version`: 빌드에 쓸 파이썬 버전(3.12).
+
+처음 한 번만 대시보드에서 연결합니다.
+
+1. Cloudflare 대시보드 → **Workers & Pages** → **Create application** → **Continue with GitHub**
+2. `krunyx/krunyx.com` 저장소를 고릅니다.
 3. 빌드 설정:
-   - Framework preset: **None**
    - Build command: `pip install -r requirements.txt && mkdocs build`
-   - Build output directory: `site`
-   - Environment variable: `PYTHON_VERSION` = `3.12`
-4. 배포가 끝나면 **Custom domains**에서 `krunyx.com`과 `www.krunyx.com`을 추가합니다.
+   - Deploy command: `npx wrangler deploy` (기본값)
+4. 배포가 끝나면 Worker의 **Settings → Domains & Routes**에서 `krunyx.com`과 `www.krunyx.com`을 추가합니다.
 
-그다음부터는 `main` 브랜치에 push할 때마다 자동으로 배포됩니다. 다른 브랜치에 push하면 미리보기 주소가 따로 생깁니다.
+그다음부터는 `main` 브랜치에 push할 때마다 자동으로 배포됩니다.
 
 ## 참고
 
