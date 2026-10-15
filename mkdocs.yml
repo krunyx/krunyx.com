@@ -1,6 +1,6 @@
 site_name: krunyx
 site_url: https://krunyx.com/
-site_description: 과학자를 위한 컴퓨팅 환경을 만듭니다. 첫 제품은 TeX으로 쓰는 웹, HyperTeX입니다.
+site_description: krunyx builds a computing environment for scientists. Our first release is HyperTeX, a web you write in TeX.
 site_author: krunyx
 copyright: © 2026 krunyx
 
@@ -11,27 +11,26 @@ edit_uri: ""
 theme:
   name: material
   custom_dir: overrides
-  language: ko
+  language: en
   logo: assets/images/krunyx-mark.svg
   favicon: assets/images/krunyx-mark.svg
   font:
-    text: IBM Plex Sans KR
+    text: IBM Plex Sans
     code: IBM Plex Mono
+  # Dark is the default. The light scheme stays available through the toggle.
   palette:
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: custom
-      accent: custom
-      toggle:
-        icon: material/weather-night
-        name: 어두운 화면으로
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
+    - scheme: slate
       primary: custom
       accent: custom
       toggle:
         icon: material/weather-sunny
-        name: 밝은 화면으로
+        name: Switch to light mode
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
   features:
     - navigation.tabs
     - navigation.sections
@@ -44,16 +43,16 @@ theme:
     repo: fontawesome/brands/github
 
 nav:
-  - 홈: index.md
+  - Home: index.md
   - HyperTeX:
-      - 소개: hypertex/index.md
-      - 내려받기: hypertex/download.md
-      - 시작하기: hypertex/getting-started.md
-      - 인용하기: hypertex/cite.md
-      - 변경 기록: hypertex/changelog.md
-  - 로드맵: roadmap.md
-  - 보안: security.md
-  - 회사: about.md
+      - Overview: hypertex/index.md
+      - Download: hypertex/download.md
+      - Get started: hypertex/getting-started.md
+      - Cite: hypertex/cite.md
+      - Changelog: hypertex/changelog.md
+  - Roadmap: roadmap.md
+  - Security: security.md
+  - Company: about.md
 
 markdown_extensions:
   - admonition
@@ -75,10 +74,35 @@ extra_css:
 
 extra_javascript:
   - assets/javascripts/mathjax.js
+  - assets/javascripts/translate.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 extra:
   generator: false
+  # Language menu. English is the original; the others open the current page
+  # through Google Translate (assets/javascripts/translate.js fills in the page path).
+  alternate:
+    - name: English
+      link: /
+      lang: en
+    - name: 한국어
+      link: /
+      lang: ko
+    - name: 日本語
+      link: /
+      lang: ja
+    - name: 中文 (简体)
+      link: /
+      lang: zh-CN
+    - name: Deutsch
+      link: /
+      lang: de
+    - name: Français
+      link: /
+      lang: fr
+    - name: Español
+      link: /
+      lang: es
   hypertex:
     version: "0.1.0"
     releases: https://github.com/krunyx/hypertex/releases/latest
