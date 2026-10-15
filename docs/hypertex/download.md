@@ -1,8 +1,8 @@
 # HyperTeX 내려받기
 
-최신 버전은 **v0.1.0**입니다. 모든 설치 파일은 [GitHub 릴리스 페이지](https://github.com/msitsti2025/hypertex/releases/latest)에 있습니다.
+최신 버전은 **v0.1.0**입니다. 모든 설치 파일은 [GitHub 릴리스 페이지](https://github.com/krunyx/hypertex/releases/latest)에 있습니다.
 
-[최신 릴리스 열기](https://github.com/msitsti2025/hypertex/releases/latest){ .md-button .md-button--primary }
+[최신 릴리스 열기](https://github.com/krunyx/hypertex/releases/latest){ .md-button .md-button--primary }
 
 ## 운영체제별 설치
 
@@ -51,7 +51,7 @@
 파이썬 3.10 이상이 필요합니다.
 
 ```bash
-git clone https://github.com/msitsti2025/hypertex.git
+git clone https://github.com/krunyx/hypertex.git
 cd hypertex
 pip install .              # 파서, HTML 변환, 웹 서버 (추가 의존성 없음)
 pip install ".[viewer]"    # 전용 뷰어까지 (PySide6)
