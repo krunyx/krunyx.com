@@ -41,5 +41,10 @@ HyperTeX는 처리하지 못하는 명령을 만나도 멈추지 않습니다. �
 
 형식의 정의는 저장소의 문서에 있습니다.
 
-- [HyperTeX 2.0 명세](https://github.com/msitsti2025/hypertex/blob/main/docs/spec.md)
-- [상호작용 규약](https://github.com/msitsti2025/hypertex/blob/main/docs/interaction-protocol.md)
+- [HyperTeX 2.0 명세](https://github.com/krunyx/hypertex/blob/main/docs/spec.md)
+- [상호작용 규약](https://github.com/krunyx/hypertex/blob/main/docs/interaction-protocol.md)
+
+## 라이선스
+
+HyperTeX는 [Apache License 2.0](https://github.com/krunyx/hypertex/blob/main/LICENSE)으로 공개된 오픈소스입니다.
+개인, 연구, 상업 목적 모두 자유롭게 쓰고 고치고 배포할 수 있습니다.
