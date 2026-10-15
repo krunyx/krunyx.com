@@ -50,6 +50,11 @@ nav:
       - Get started: hypertex/getting-started.md
       - Cite: hypertex/cite.md
       - Changelog: hypertex/changelog.md
+  - hangulmath:
+      - Overview: hangulmath/index.md
+      - Install: hangulmath/install.md
+      - Usage: hangulmath/usage.md
+      - Changelog: hangulmath/changelog.md
   - Roadmap: roadmap.md
   - Security: security.md
   - Company: about.md

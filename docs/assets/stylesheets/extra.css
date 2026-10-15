@@ -221,3 +221,73 @@ body { word-break: keep-all; overflow-wrap: break-word; }
   .md-typeset .md-button { transition: none; }
 }
 
+
+/* ---------- hangulmath ---------- */
+/* The bundled hangulmath symbol font (SIL OFL 1.1), used for the jamo in the symbol tables. */
+@font-face {
+  font-family: "HangulMath Sans";
+  src: url("../fonts/hangulmath-sans.otf") format("opentype");
+  font-display: swap;
+}
+.md-typeset .kx-jamo {
+  font-family: "HangulMath Sans", var(--md-text-font-family);
+  font-size: 1.5em;
+  line-height: 1;
+}
+.md-typeset .kx-jamo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(7.2rem, 1fr));
+  gap: 0.5rem;
+  margin: 0.6rem 0 1.6rem;
+}
+.md-typeset .kx-jamo-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.7rem 0.4rem 0.6rem;
+  background: var(--kx-surface);
+  border: 1px solid var(--kx-rule);
+  border-radius: 8px;
+}
+.md-typeset .kx-jamo-tile .kx-jamo { font-size: 2.2em; margin-bottom: 0.25rem; color: var(--kx-ink); }
+.md-typeset .kx-jamo-tile code { font-size: 0.68rem; background: none; padding: 0; }
+.md-typeset .kx-jamo-tile code + code { color: var(--kx-muted); }
+
+/* Formulas typeset by TeX (SVG, black ink, drawn at their natural size).
+   In the dark scheme they are inverted to light ink. */
+.md-typeset img.kx-tex { display: inline-block; max-width: 100%; width: auto; height: auto; margin: 0; }
+[data-md-color-scheme="slate"] .md-typeset img.kx-tex { filter: invert(0.9); }
+.md-typeset .kx-texfig {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 1.2rem 0 0.6rem;
+  padding: 1.6rem 1.2rem;
+  background: var(--kx-surface);
+  border: 1px solid var(--kx-rule);
+  border-radius: 10px;
+  text-align: center;
+}
+.md-typeset .kx-texfig > p { margin: 0; }
+
+/* Example: typeset result on top, LaTeX input below */
+.md-typeset .kx-ex {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--kx-rule);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0.6rem 0 1.8rem;
+}
+.md-typeset .kx-ex > p {
+  order: -1;
+  margin: 0;
+  padding: 1.2rem 1rem;
+  background: var(--kx-surface);
+  text-align: center;
+  border-bottom: 1px solid var(--kx-rule);
+  overflow-x: auto;
+}
+.md-typeset .kx-ex > .highlight { margin: 0; }
+.md-typeset .kx-ex > .highlight pre { margin: 0; }
+.md-typeset .kx-ex > .highlight pre > code { border-radius: 0; }
