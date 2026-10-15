@@ -74,35 +74,10 @@ extra_css:
 
 extra_javascript:
   - assets/javascripts/mathjax.js
-  - assets/javascripts/translate.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 extra:
   generator: false
-  # Language menu. English is the original; the others open the current page
-  # through Google Translate (assets/javascripts/translate.js fills in the page path).
-  alternate:
-    - name: English
-      link: /
-      lang: en
-    - name: 한국어
-      link: /
-      lang: ko
-    - name: 日本語
-      link: /
-      lang: ja
-    - name: 中文 (简体)
-      link: /
-      lang: zh-CN
-    - name: Deutsch
-      link: /
-      lang: de
-    - name: Français
-      link: /
-      lang: fr
-    - name: Español
-      link: /
-      lang: es
   hypertex:
     version: "0.1.0"
     releases: https://github.com/krunyx/hypertex/releases/latest

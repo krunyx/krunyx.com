@@ -221,7 +221,3 @@ body { word-break: keep-all; overflow-wrap: break-word; }
   .md-typeset .md-button { transition: none; }
 }
 
-/* Language menu in the header */
-.md-header__option .md-select__inner { background: var(--kx-surface); border: 1px solid var(--kx-rule); }
-.md-select__link { color: var(--kx-ink); }
-.md-select__link:hover, .md-select__link:focus { color: var(--kx-celadon); }
