@@ -5,5 +5,7 @@
   "assets": {
     "directory": "./site",
     "not_found_handling": "404-page"
-  }
+  },
+  // Every branch and pull request gets its own preview URL (npx wrangler preview).
+  "previews": {}
 }
