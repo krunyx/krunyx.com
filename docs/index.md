@@ -17,6 +17,11 @@ We are shipping it from the top down, one layer at a time.
     <span class="kx-stack__desc">Web documents written in LaTeX syntax, and a browser built to read them</span>
     <span class="kx-stack__status">Available now</span>
   </a>
+  <a class="kx-stack__layer kx-stack__layer--live" href="hangulmath/">
+    <span class="kx-stack__name">hangulmath</span>
+    <span class="kx-stack__desc">Hangul letters as math symbols for LaTeX</span>
+    <span class="kx-stack__status">On CTAN</span>
+  </a>
   <div class="kx-stack__layer">
     <span class="kx-stack__name">AI layer</span>
     <span class="kx-stack__desc">An OS layer that lets AI agents act only within the limits you grant</span>
@@ -65,3 +70,22 @@ Parameter sliders let readers move equations and plots.
 
 [Download HyperTeX](hypertex/download.md){ .md-button .md-button--primary }
 [Get started](hypertex/getting-started.md){ .md-button }
+
+## hangulmath { #hangulmath }
+
+Notation runs out of letters. hangulmath adds the 40 letters of the Korean alphabet to LaTeX as math symbols:
+geometric, unlike anything in Latin or Greek, and each with a name you can type.
+
+<figure class="kx-texfig" markdown>
+![Typeset with hangulmath: the Hangul letter tieut as a sum operator, giyeok as a variable, and mieum as the d'Alembertian](assets/images/hangulmath/hero.svg){ .kx-tex }
+</figure>
+
+```latex
+\[ \hangulsum\tiut_{k=1}^{n} \giug_k^{\,2}
+   \le \Bigl(\hangulsum\tiut_{k=1}^{n} \giug_k\Bigr)^{2},
+   \qquad \mium^2 \vec{A} = -\mu_0 \vec{J} \]
+```
+
+[See what you can write](hangulmath/index.md){ .md-button .md-button--primary }
+[Install](hangulmath/install.md){ .md-button }
+
