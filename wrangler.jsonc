@@ -1,0 +1,9 @@
+// Cloudflare Workers 배포 설정. mkdocs build 가 만든 site/ 폴더를 정적 파일로 올린다.
+{
+  "name": "krunyx-com",
+  "compatibility_date": "2026-10-15",
+  "assets": {
+    "directory": "./site",
+    "not_found_handling": "404-page"
+  }
+}
