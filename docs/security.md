@@ -1,23 +1,23 @@
-# 보안
+# Security
 
-## 취약점 신고
+## Reporting a vulnerability
 
-krunyx 소프트웨어에서 보안 취약점을 발견했다면 공개 이슈로 올리지 말고
-[security@krunyx.com](mailto:security@krunyx.com)으로 알려 주세요.
+If you find a security vulnerability in krunyx software, please do not open a public issue.
+Email [security@krunyx.com](mailto:security@krunyx.com) instead.
 
-신고에 다음 내용이 있으면 빠르게 확인할 수 있습니다.
+These details help us confirm it quickly:
 
-- 영향을 받는 제품과 버전
-- 재현 방법
-- 예상되는 영향
+- The affected product and version
+- Steps to reproduce
+- The expected impact
 
-신고를 받으면 영업일 기준 3일 안에 접수 확인을 보내고, 수정 계획을 함께 알려 드립니다.
-수정이 배포되기 전까지는 내용을 공개하지 말아 주세요. 원하시면 수정 공지에 신고자 이름을 밝혀 감사를 표합니다.
+We acknowledge reports within three business days and share our plan for a fix.
+Please keep the details private until the fix is released. If you wish, we will credit you in the release notes.
 
-## 지원하는 버전
+## Supported versions
 
-보안 수정은 가장 최신 릴리스에만 적용합니다.
+Security fixes are applied to the latest release only.
 
-| 제품 | 지원 버전 |
+| Product | Supported versions |
 | --- | --- |
 | HyperTeX | 0.1.x |

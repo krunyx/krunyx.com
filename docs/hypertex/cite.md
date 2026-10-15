@@ -1,6 +1,6 @@
-# 인용하기
+# Cite HyperTeX
 
-연구에 HyperTeX를 썼다면 아래 형식으로 인용해 주세요.
+If you used HyperTeX in your research, please cite it as follows.
 
 ```bibtex
 @software{hypertex,
@@ -12,6 +12,6 @@
 }
 ```
 
-!!! note "DOI 준비 중"
-    릴리스마다 영구 식별자(DOI)를 붙일 수 있도록 Zenodo 연동을 준비하고 있습니다.
-    DOI가 발급되면 이 페이지와 저장소의 `CITATION.cff`에 함께 올립니다.
+!!! note "DOI coming soon"
+    We are setting up Zenodo so that every release gets a persistent identifier (DOI).
+    Once it is issued, it will appear on this page and in the repository's `CITATION.cff`.

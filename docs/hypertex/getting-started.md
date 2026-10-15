@@ -1,80 +1,80 @@
-# 시작하기
+# Get started
 
-## 첫 문서 열기
+## Open your first document
 
-저장소의 예제 문서 `examples/oscillator.htex`는 조화 진동자 노트입니다.
-수식 번호, 상호참조, 정리 환경, 접힌 증명, 매개변수, 한글 수식이 한 문서에 들어 있습니다.
+The repository includes `examples/oscillator.htex`, a set of notes on the harmonic oscillator.
+It uses equation numbers, cross-references, theorem environments, a collapsible proof, a parameter slider and Hangul in math, all in one document.
 
-=== "뷰어로 열기"
+=== "In the viewer"
 
     ```bash
     htex view examples/oscillator.htex
     ```
 
-    설치한 앱에서는 파일을 더블클릭하거나 창으로 끌어 놓아도 됩니다.
+    With the installed app, you can also double-click the file or drag it onto the window.
 
-=== "HTML로 바꾸기"
+=== "As HTML"
 
     ```bash
     htex html examples/oscillator.htex -o oscillator.html
     ```
 
-    만들어진 `oscillator.html`은 어느 브라우저에서나 열립니다.
+    The resulting `oscillator.html` opens in any browser.
 
-=== "웹 서버로 보기"
+=== "Through the web server"
 
     ```bash
     htex serve tests/docs
     ```
 
-    브라우저에서 `http://127.0.0.1:8000/`을 엽니다.
+    Then open `http://127.0.0.1:8000/` in your browser.
 
-## 문서 쓰기
+## Write a document
 
-HyperTeX 문서는 LaTeX와 거의 같습니다. 문서 클래스를 `hypertex`로 두면 됩니다.
+A HyperTeX document is almost plain LaTeX. Set the document class to `hypertex`.
 
 ```latex
 \documentclass{hypertex}
-\title{조화 진동자 노트}
-\author{홍길동}
+\title{Notes on the harmonic oscillator}
+\author{Jane Doe}
 \parameter{\omega}{0.5}{3}{1}[step=0.1]
 
 \begin{document}
 \maketitle
 
-\section{해밀토니안}\label{sec:H}
+\section{The Hamiltonian}\label{sec:H}
 \begin{equation}\label{eq:H}
   H = \frac{p^2}{2m} + \frac{1}{2} m\omega^2 x^2
 \end{equation}
-식~\eqref{eq:H}에서 $\omega$를 슬라이더로 바꿔 보세요.
+Move $\omega$ with the slider and watch equation~\eqref{eq:H}.
 \end{document}
 ```
 
-`\parameter{이름}{최솟값}{최댓값}{기본값}`으로 선언한 값은 뷰어에서 슬라이더로 나타납니다.
+A value declared as `\parameter{name}{min}{max}{default}` appears as a slider in the viewer.
 
-## 정적 웹사이트로 발행하기
+## Publish a static website
 
-여러 `.htex` 문서가 든 폴더를 일반 웹사이트로 바꿀 수 있습니다.
+Turn a folder of `.htex` documents into an ordinary website:
 
 ```bash
 htex build my-notes -o site
 ```
 
-`site` 폴더를 GitHub Pages나 Cloudflare Pages 같은 정적 호스팅에 올리면 됩니다.
+Upload the `site` folder to any static host, such as GitHub Pages or Cloudflare.
 
-## 뷰어 단축키
+## Viewer shortcuts
 
-macOS에서는 Ctrl 대신 Cmd를 씁니다.
+On macOS, use Cmd instead of Ctrl.
 
-| 동작 | 키 |
+| Action | Keys |
 | --- | --- |
-| 새 탭, 탭 닫기 | Ctrl+T, Ctrl+W |
-| 탭 전환 | Ctrl+Tab, Ctrl+1…9 |
-| 링크를 새 탭으로 | 가운데 클릭 또는 Ctrl+클릭 |
-| 찾기 | Ctrl+F (다음 Enter 또는 F3, 이전 Shift+Enter) |
-| 확대, 축소, 원래 크기 | Ctrl+=, Ctrl+-, Ctrl+0 |
-| 원본(.htex) 보기 | Ctrl+U |
-| 뒤로, 앞으로 | Alt+←, Alt+→ |
-| 새로고침, 주소창 | Ctrl+R, Ctrl+L |
+| New tab, close tab | Ctrl+T, Ctrl+W |
+| Switch tabs | Ctrl+Tab, Ctrl+1…9 |
+| Open link in new tab | Middle-click or Ctrl+click |
+| Find | Ctrl+F (next: Enter or F3, previous: Shift+Enter) |
+| Zoom in, out, reset | Ctrl+=, Ctrl+-, Ctrl+0 |
+| View source (.htex) | Ctrl+U |
+| Back, forward | Alt+←, Alt+→ |
+| Reload, address bar | Ctrl+R, Ctrl+L |
 
-테마(시스템, 밝게, 어둡게)는 보기 메뉴에서 바꿉니다. 열어 둔 로컬 문서는 저장할 때마다 자동으로 다시 그려집니다.
+Choose the theme (system, light, dark) from the View menu. Local documents you have open redraw automatically each time you save them.

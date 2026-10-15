@@ -11,17 +11,23 @@
   --kx-celadon-strong: #2C5F57;
   --kx-celadon-wash: #E3EEEA;
   --kx-code-bg: #EDF0EC;
+  --kx-surface: #FFFFFF;
+  --kx-on-accent: #F6F7F4;
 }
 
 [data-md-color-scheme="slate"] {
-  --kx-paper: #141B22;
-  --kx-ink: #E6EAE7;
-  --kx-muted: #9AA6AE;
-  --kx-rule: #2B3640;
-  --kx-celadon: #86C1B5;
-  --kx-celadon-strong: #A6D5CB;
-  --kx-celadon-wash: #1D2C2D;
-  --kx-code-bg: #1A232B;
+  /* Default scheme. A deep blue-slate ground rather than flat black,
+     with two surface steps so panels separate without shadows. */
+  --kx-paper: #10171D;
+  --kx-surface: #151E25;
+  --kx-ink: #E3E8E5;
+  --kx-muted: #93A1A9;
+  --kx-rule: #24303A;
+  --kx-celadon: #7CBCAF;
+  --kx-celadon-strong: #A2D5CA;
+  --kx-celadon-wash: #16282A;
+  --kx-code-bg: #18222A;
+  --kx-on-accent: #0B1A17;
 }
 
 /* Material 색 토큰을 우리 토큰에 연결 */
@@ -97,7 +103,7 @@ body { word-break: keep-all; overflow-wrap: break-word; }
 .md-typeset .md-button--primary,
 .kx-hero .md-button--primary {
   background: var(--kx-celadon);
-  color: var(--kx-paper);
+  color: var(--kx-on-accent);
 }
 .md-typeset .md-button:hover,
 .md-typeset .md-button:focus-visible,
@@ -105,7 +111,7 @@ body { word-break: keep-all; overflow-wrap: break-word; }
 .kx-hero .md-button:focus-visible {
   background: var(--kx-celadon-strong);
   border-color: var(--kx-celadon-strong);
-  color: var(--kx-paper);
+  color: var(--kx-on-accent);
 }
 .md-typeset .md-button:focus-visible,
 .kx-hero a:focus-visible { outline: 2px solid var(--kx-celadon); outline-offset: 3px; }
@@ -122,10 +128,11 @@ body { word-break: keep-all; overflow-wrap: break-word; }
   align-items: center;
 }
 .kx-hero h1 {
-  font-size: 2.1rem;
-  line-height: 1.25;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-size: 2.6rem;
+  line-height: 1.12;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
   color: var(--kx-ink);
   margin: 0 0 1rem;
 }
@@ -157,7 +164,7 @@ body { word-break: keep-all; overflow-wrap: break-word; }
   padding: 0;
   white-space: pre;
 }
-.kx-demo__pane--render { font-size: 0.8rem; line-height: 1.7; }
+.kx-demo__pane--render { font-size: 0.8rem; line-height: 1.7; background: var(--kx-surface); }
 .kx-demo__pane--render p { margin: 0.3rem 0; }
 .kx-demo__h { font-size: 0.95rem; font-weight: 600; margin: 0 0 0.4rem; }
 .kx-demo__eq { display: grid; grid-template-columns: 1fr auto; align-items: center; }
@@ -177,6 +184,8 @@ body { word-break: keep-all; overflow-wrap: break-word; }
 }
 .md-typeset a.kx-stack__layer { color: inherit; }
 .md-typeset .kx-stack__layer--live { border-color: var(--kx-celadon); background: var(--kx-celadon-wash); }
+.md-typeset .kx-stack__layer { background: var(--kx-surface); }
+.md-typeset .kx-stack__layer.kx-stack__layer--live { background: var(--kx-celadon-wash); }
 .md-typeset a.kx-stack__layer--live:hover .kx-stack__name { color: var(--kx-celadon); }
 .kx-stack__name { font-weight: 600; }
 .kx-stack__desc { color: var(--kx-muted); font-size: 0.8rem; }
@@ -211,3 +220,4 @@ body { word-break: keep-all; overflow-wrap: break-word; }
 @media (prefers-reduced-motion: reduce) {
   .md-typeset .md-button { transition: none; }
 }
+
