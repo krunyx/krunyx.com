@@ -22,6 +22,11 @@ We are shipping it from the top down, one layer at a time.
     <span class="kx-stack__desc">Hangul letters as math symbols for LaTeX</span>
     <span class="kx-stack__status">On CTAN</span>
   </a>
+  <a class="kx-stack__layer kx-stack__layer--live" href="hwp2x/">
+    <span class="kx-stack__name">hwp2x</span>
+    <span class="kx-stack__desc">Convert Hangul HWP documents to the open HWPX format</span>
+    <span class="kx-stack__status">Available now</span>
+  </a>
   <div class="kx-stack__layer">
     <span class="kx-stack__name">AI layer</span>
     <span class="kx-stack__desc">An OS layer that lets AI agents act only within the limits you grant</span>
@@ -89,3 +94,10 @@ geometric, unlike anything in Latin or Greek, and each with a name you can type.
 [See what you can write](hangulmath/index.md){ .md-button .md-button--primary }
 [Install](hangulmath/install.md){ .md-button }
 
+## hwp2x { #hwp2x }
+
+Korean documents still sit in the binary HWP format, while institutions move to the open, XML-based HWPX.
+hwp2x converts them one file or a whole folder at a time, on Windows, macOS and Linux, and checks every file it writes.
+
+[Download hwp2x](hwp2x/index.md#download){ .md-button .md-button--primary }
+[How to use](hwp2x/index.md#use){ .md-button }
