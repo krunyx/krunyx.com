@@ -4,8 +4,6 @@ site_description: krunyx builds a computing environment for scientists. Our firs
 site_author: krunyx
 copyright: © 2026 krunyx
 
-repo_url: https://github.com/krunyx/hypertex
-repo_name: hypertex
 edit_uri: ""
 
 theme:
@@ -39,8 +37,6 @@ theme:
     - search.suggest
     - content.code.copy
     - toc.follow
-  icon:
-    repo: fontawesome/brands/github
 
 nav:
   - Home: index.md
@@ -80,6 +76,7 @@ extra_css:
 
 extra_javascript:
   - assets/javascripts/mathjax.js
+  - assets/javascripts/translate.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 extra:
