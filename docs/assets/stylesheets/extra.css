@@ -201,6 +201,10 @@ body { word-break: keep-all; overflow-wrap: break-word; }
 }
 .md-typeset .kx-points > div { border-left: 2px solid var(--kx-celadon); padding-left: 1rem; }
 .md-typeset .kx-points p { font-size: 0.8rem; color: var(--kx-muted); margin: 0.3rem 0 0; }
+/* 두 가지 중 하나를 고르는 카드 (hwp2x 버전 선택) */
+.md-typeset .kx-points--two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.md-typeset .kx-points--two ul { font-size: 0.8rem; }
+.md-typeset .kx-points--two h3 { margin-top: 0; }
 
 /* 홈의 본문 폭을 첫 화면과 맞춘다 */
 .md-main__inner:has(.kx-stack) { max-width: 61rem; margin-top: 0.8rem; }
