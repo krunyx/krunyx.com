@@ -26,9 +26,9 @@ All files are also on the [GitHub releases page](https://github.com/krunyx/hwp2x
 
 === "Windows"
 
-    | Download | For |
-    | --- | --- |
-    | [hwp2x-0.1.0-windows-x64.zip](https://github.com/krunyx/hwp2x/releases/download/v0.1.0/hwp2x-0.1.0-windows-x64.zip) | Windows 10 and 11, 64-bit |
+    | Download | Size | For |
+    | --- | --- | --- |
+    | [hwp2x-0.1.0-windows-x64.zip](https://github.com/krunyx/hwp2x/releases/download/v0.1.0/hwp2x-0.1.0-windows-x64.zip) | 60 MB | Windows 10 and 11, 64-bit |
 
     1. Right-click the zip file and choose **Extract All**. Keep the extracted folder together; the program needs the files next to it.
     2. Run **`hwp2x-gui.exe`** to open the app.
@@ -36,10 +36,10 @@ All files are also on the [GitHub releases page](https://github.com/krunyx/hwp2x
 
 === "macOS"
 
-    | Download | For |
-    | --- | --- |
-    | [hwp2x-0.1.0-macos-arm64.dmg](https://github.com/krunyx/hwp2x/releases/download/v0.1.0/hwp2x-0.1.0-macos-arm64.dmg) | Apple silicon (M1 and later) |
-    | [hwp2x-0.1.0-macos-x64.dmg](https://github.com/krunyx/hwp2x/releases/download/v0.1.0/hwp2x-0.1.0-macos-x64.dmg) | Intel Macs |
+    | Download | Size | For |
+    | --- | --- | --- |
+    | [hwp2x-0.1.0-macos-arm64.dmg](https://github.com/krunyx/hwp2x/releases/download/v0.1.0/hwp2x-0.1.0-macos-arm64.dmg) | 55 MB | Apple silicon (M1 and later) |
+    | [hwp2x-0.1.0-macos-x64.dmg](https://github.com/krunyx/hwp2x/releases/download/v0.1.0/hwp2x-0.1.0-macos-x64.dmg) | 59 MB | Intel Macs |
 
     1. Open the `.dmg` file and drag **hwp2x** into your Applications folder.
     2. Before the first launch, open Terminal and run this once:
@@ -53,9 +53,9 @@ All files are also on the [GitHub releases page](https://github.com/krunyx/hwp2x
 
 === "Linux"
 
-    | Download | For |
-    | --- | --- |
-    | [hwp2x-0.1.0-linux-x64.tar.gz](https://github.com/krunyx/hwp2x/releases/download/v0.1.0/hwp2x-0.1.0-linux-x64.tar.gz) | 64-bit Linux (glibc 2.35 or later, e.g. Ubuntu 22.04+) |
+    | Download | Size | For |
+    | --- | --- | --- |
+    | [hwp2x-0.1.0-linux-x64.tar.gz](https://github.com/krunyx/hwp2x/releases/download/v0.1.0/hwp2x-0.1.0-linux-x64.tar.gz) | 96 MB | 64-bit Linux (glibc 2.35 or later, e.g. Ubuntu 22.04+) |
 
     ```bash
     tar xzf hwp2x-0.1.0-linux-x64.tar.gz
