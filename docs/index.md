@@ -24,7 +24,7 @@ We are shipping it from the top down, one layer at a time.
   </a>
   <a class="kx-stack__layer kx-stack__layer--live" href="hwp2x/">
     <span class="kx-stack__name">hwp2x</span>
-    <span class="kx-stack__desc">Convert Hangul HWP documents to the open HWPX format</span>
+    <span class="kx-stack__desc">Convert Hangul HWP documents to HWPX, Word, Markdown, HTML and LaTeX</span>
     <span class="kx-stack__status">Available now</span>
   </a>
   <div class="kx-stack__layer">
@@ -97,7 +97,10 @@ geometric, unlike anything in Latin or Greek, and each with a name you can type.
 ## hwp2x { #hwp2x }
 
 Korean documents still sit in the binary HWP format, while institutions move to the open, XML-based HWPX.
-hwp2x converts them one file or a whole folder at a time, on Windows, macOS and Linux, and checks every file it writes.
+hwp2x converts them one file or a whole folder at a time, on Windows, macOS and Linux.
 
-[Download hwp2x](hwp2x/index.md#download){ .md-button .md-button--primary }
+- **v0.1.0** converts HWP to HWPX, faithfully. Enough for most people.
+- **v0.2.0** also makes a first draft in Word, Markdown, HTML, LaTeX or HyperTeX, with equations translated, ready to finish by hand.
+
+[Choose a version](hwp2x/index.md#versions){ .md-button .md-button--primary }
 [How to use](hwp2x/index.md#use){ .md-button }
