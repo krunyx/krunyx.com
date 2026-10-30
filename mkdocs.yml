@@ -55,6 +55,7 @@ nav:
       - Install: hangulmath/install.md
       - Usage: hangulmath/usage.md
       - Changelog: hangulmath/changelog.md
+  - hwp2x: hwp2x/index.md
   - Roadmap: roadmap.md
   - Security: security.md
   - Company: about.md
