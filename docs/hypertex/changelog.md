@@ -2,6 +2,22 @@
 
 Each new version is added at the top.
 
+## v0.4.0 { #v0-4-0 }
+
+October 2026. Read Markdown notes and open local HTML files.
+
+- **Markdown (`.md`)**: opens like a HyperTeX document, so tabs, find, themes, bookmarks, view source and
+  auto-reload all work. Supports headings, lists and task lists, quotes, code, GitHub tables, footnotes,
+  images, front matter (title, author, date, tags), GitHub and MkDocs alert boxes and `<details>` blocks
+- **Math in Markdown**: `$…$`, `$$…$$`, `\[…\]`, ```` ```math ```` blocks and numbered
+  `equation` / `align` environments, rendered as MathML. A price like "$5 and $10" stays plain text
+- **Links between notes**: `[next](#heading)` jumps within the page; links to other `.md`, `.htex` or
+  `.html` files open in the viewer. `htex build` turns a folder of Markdown into a website with working links
+- **Local HTML files**: open `.html` pages from your computer with their own styles and images.
+  Scripts run in an isolated sandbox and cannot read your other files
+- **Not planned**: HyperTeX does not open `.hwpx` or `.docx` directly. To read a Korean HWP document,
+  convert it with [hwp2x](../hwp2x/index.md), which can write Markdown or HyperTeX
+
 ## v0.3.0 { #v0-3-0 }
 
 October 2026. A browser window that looks and works like Google Chrome.

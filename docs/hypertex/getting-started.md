@@ -29,6 +29,17 @@ It uses equation numbers, cross-references, theorem environments, a collapsible 
 
     Then open `http://127.0.0.1:8000/` in your browser.
 
+## Open Markdown and HTML files
+
+The viewer also opens Markdown notes (`.md`) and HTML pages (`.html`) from your computer.
+Markdown math is written as `$…$` inline or `$$…$$` on its own lines, and links to other notes open in the viewer.
+
+```bash
+htex view notes/README.md
+htex html notes/README.md -o readme.html      # or convert one to HTML
+htex build notes -o site                      # or a whole folder of .md and .htex files
+```
+
 ## Write a document
 
 A HyperTeX document is almost plain LaTeX. Set the document class to `hypertex`.
