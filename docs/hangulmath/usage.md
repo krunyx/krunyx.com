@@ -18,7 +18,7 @@ $\giug_{\ah}(x)$, $\niun^{\ih j}$, $X\giug x\niun$
 
 ## The 40 symbols
 
-<!-- generated from hangulmath.sty v0.7 (40 symbols) -->
+<!-- generated from hangulmath.sty v0.9 (40 symbols) -->
 
 Consonants show the official name first and the four-letter alias below it.
 
@@ -95,24 +95,15 @@ Consonants show the official name first and the four-letter alias below it.
   and ㅢ is `\euih` to tell it apart from ㅟ, `\uih`.
 - **`\hangulsym{<name>}`** reaches any symbol by its official name or alias, even if another package has taken the command.
 
-## Operators
+## Limits under a symbol
 
-The symbol commands give ordinary symbols. To use a symbol as an operator, wrap it in one of these commands.
-They accept any math symbol, not only Hangul.
-
-| Command | Behaviour |
-| --- | --- |
-| `\hangulsum{<sym>}` | Large; in display style, limits below and above, like `\sum` |
-| `\hangulint{<sym>}` | Large; limits at the side, like `\int` |
-| `\hangullim{<sym>}` | Normal size; in display style, limits below, like `\lim` |
-| `\hangulopscale{<display>}{<text>}` | Magnification of the large forms (default `2.0` and `1.3`) |
+The symbol commands give ordinary symbols. To put limits below a symbol, like `\lim`, use standard LaTeX:
 
 ```latex
-\[ \hangulsum\tiut_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6} \]
-\[ \hangulint\diud_{x=0}^{x=1} f(x) = a \qquad \hangullim\liul_{x\to\infty} f(x) = b \]
+\[ \mathop{\liul}\limits_{n\to\infty}\Bigl(1+\frac1n\Bigr)^{n} = e \]
 ```
 
-The large forms use a lighter font, so magnification does not make their strokes heavier than those of `\sum` and `\int`.
+(Versions up to 0.8 had `\hangulsum`, `\hangulint` and `\hangullim` for this; they were removed in v0.9.)
 
 ## Package options
 
@@ -122,13 +113,13 @@ The large forms use a lighter font, so magnification does not make their strokes
 
 | Option | Meaning |
 | --- | --- |
-| `font=<font>` | Font for the symbols, by name or file. Default: the bundled `hangulmath-sans.otf` |
-| `opfont=<font>` | Font for the large operator forms. Default: the bundled, lighter `hangulmath-sans-light.otf` |
+| `font=<font>` | Font for the symbols, by name or file (XeLaTeX and LuaLaTeX only). Default: the bundled `hangulmath-sans.otf` |
 | `metrics=<file>` | Metrics file (without `.def`) describing the glyphs of `font`. Default: `hangulmath-metrics` |
 | `scale=<number>` | Scale factor for the symbol font. Default: from the metrics file (about 1.24) |
 | `sidebearing=<em>` | Space added to the left and right of each glyph. Default: `0.06` |
 
 If a requested font is not installed, hangulmath warns and falls back to the bundled font, so documents always compile.
+Under pdfLaTeX the bundled font is always used, and `font` is ignored with a warning.
 
 ## With kotex
 
@@ -137,7 +128,7 @@ kotex already uses `\rieul`, so hangulmath leaves that name to kotex: write ㄹ 
 
 ## Using another font
 
-Korean fonts draw these letters small and high in the em square, so hangulmath scales, lowers and trims each glyph
+This works with XeLaTeX and LuaLaTeX. Korean fonts draw these letters small and high in the em square, so hangulmath scales, lowers and trims each glyph
 using a metrics file. To use another font, generate one with the bundled Python script (Python 3.10+, `pip install fonttools`):
 
 ```bash
@@ -148,13 +139,14 @@ python3 hangulmath-metrics.py "Nanum Gothic" -o nanum.def
 \usepackage[font={Nanum Gothic}, metrics=nanum]{hangulmath}
 ```
 
-`\hangulmathfont{<font>}` and `\hangulmathopfont{<font>}` change the fonts later in the preamble.
+`\hangulmathfont{<font>}` changes the font later in the preamble.
 
 ## Things to watch
 
 - **Look-alikes.** ㅡ (`\euh`) resembles a minus sign and ㅣ (`\ih`) a vertical bar. Say in the text which letter you mean.
-- **Engines.** pdfLaTeX is not supported. Check that your publisher or preprint server compiles with XeLaTeX or LuaLaTeX before submitting.
-- **Searchable PDFs.** The symbols are real Unicode characters, so readers can copy and search them.
+- **Submissions.** Since v0.8 the package works with pdfLaTeX, so arXiv and the usual journal systems can compile it.
+  If the server's TeX installation does not have hangulmath yet, include the four pdfLaTeX files with your sources.
+- **Searchable PDFs.** With every engine the symbols are real Unicode characters in the PDF, so readers can copy and search them.
 
 The full manual, with many more examples, is
 [hangulmath-doc.pdf](https://mirrors.ctan.org/fonts/hangulmath/hangulmath-doc.pdf).

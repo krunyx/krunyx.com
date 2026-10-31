@@ -2,6 +2,27 @@
 
 Each new version is added at the top.
 
+## v0.9 { #v0-9 }
+
+2026-10-21.
+
+- **One font, fewer files.** The operator commands `\hangulsum`, `\hangulint`, `\hangullim` and `\hangulopscale`
+  have been removed, together with the lighter operator font, the option `opfont` and `\hangulmathopfont`.
+  pdfLaTeX now needs four files and XeLaTeX three.
+- To put limits below a symbol, use standard LaTeX: `\mathop{\liul}\limits_{n\to\infty}`.
+- The option `opfont` is still accepted, with a warning, so old documents compile.
+  Documents that use the removed commands need to be updated.
+- The manual compiles with pdfLaTeX as well as XeLaTeX.
+
+## v0.8 { #v0-8 }
+
+2026-10-21.
+
+- **Works with pdfLaTeX**, and with `latex` followed by `dvips` or `dvipdfmx`.
+  The bundled font is also shipped as a Type 1 font with TFM metrics and a map file; the output matches XeLaTeX.
+- The symbols can be copied and searched in PDFs made with pdfLaTeX.
+- Under pdfLaTeX the option `font` is ignored with a warning, since only XeLaTeX and LuaLaTeX can load other fonts.
+
 ## v0.7 { #v0-7 }
 
 2026-10-15.

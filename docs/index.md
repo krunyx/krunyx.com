@@ -82,12 +82,11 @@ Notation runs out of letters. hangulmath adds the 40 letters of the Korean alpha
 geometric, unlike anything in Latin or Greek, and each with a name you can type.
 
 <figure class="kx-texfig" markdown>
-![Typeset with hangulmath: the Hangul letter tieut as a sum operator, giyeok as a variable, and mieum as the d'Alembertian](assets/images/hangulmath/hero.svg){ .kx-tex }
+![Typeset with hangulmath: giyeok with subscript a as a function defined by a power series with coefficients nieun, and the wave equation with mieum as the d'Alembertian](assets/images/hangulmath/hero.svg){ .kx-tex }
 </figure>
 
 ```latex
-\[ \hangulsum\tiut_{k=1}^{n} \giug_k^{\,2}
-   \le \Bigl(\hangulsum\tiut_{k=1}^{n} \giug_k\Bigr)^{2},
+\[ \giug_{\ah}(x) = \sum_{k} \niun_k\, x^k,
    \qquad \mium^2 \vec{A} = -\mu_0 \vec{J} \]
 ```
 

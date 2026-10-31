@@ -1,8 +1,8 @@
-The fonts hangulmath-sans.otf (HangulMath Sans DemiLight) and
-hangulmath-sans-light.otf (HangulMath Sans Light) are Modified Versions
-of Noto Sans CJK KR (DemiLight and Light), reduced to the modern Hangul
-compatibility jamo (U+3131-U+3163) and renamed. They are distributed
-under the SIL Open Font License, Version 1.1, reproduced below.
+The font hangulmath-sans.otf (HangulMath Sans DemiLight) and its Type 1
+version hangulmath-sans.pfb / hangulmath-sans.tfm are a Modified Version
+of Noto Sans CJK KR DemiLight, reduced to the modern Hangul compatibility
+jamo (U+3131-U+3163) and renamed. They are distributed under the SIL
+Open Font License, Version 1.1, reproduced below.
 
 Original Font Software:
 Copyright 2014-2021 Adobe (http://www.adobe.com/), with Reserved Font
