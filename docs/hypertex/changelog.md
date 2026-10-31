@@ -2,6 +2,23 @@
 
 Each new version is added at the top.
 
+## v0.3.0 { #v0-3-0 }
+
+October 2026. A browser window that looks and works like Google Chrome.
+
+- **Familiar layout**: tabs on top, then the toolbar (back, forward, reload, home, address bar, ⋮ menu),
+  then the bookmarks bar, then the page
+- **Tabs**: rounded Chrome-style tabs with icons, a loading indicator and a **+** button; they shrink
+  as you open more, middle-click closes, right-click offers duplicate, close others and close to the right
+- **Address bar**: a page-info button on the left shows a document's diagnostics (errors, compatibility mode),
+  a zoom chip appears when you are not at 100%, and a ☆ adds or edits a bookmark
+- **Bookmarks**: a bookmarks bar with folders, an overflow » menu and right-click editing;
+  Ctrl+D to bookmark, Ctrl+Shift+B to show or hide the bar
+- **New tab page**: new tabs and the home button open a start page with an address box and shortcut tiles
+  for your bookmarks
+- **⋮ menu** with a zoom row, theme and home page settings; find opens as a box at the top right;
+  link addresses appear in a bubble at the bottom left; light and dark themes follow Chrome's colors
+
 ## v0.2.0 { #v0-2-0 }
 
 October 2026. Much better support for existing LaTeX papers and books.

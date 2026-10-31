@@ -62,6 +62,15 @@ htex build my-notes -o site
 
 Upload the `site` folder to any static host, such as GitHub Pages or Cloudflare.
 
+## The viewer window
+
+The viewer is laid out like Google Chrome. From the top: tabs, the toolbar (back, forward, reload, home,
+the address bar and the ⋮ menu), the bookmarks bar, and the page. New tabs and the home button open a start page
+with an address box and shortcuts to your bookmarks.
+
+The button at the left of the address bar shows the document's diagnostics, such as errors or compatibility mode.
+Click ☆ at the right to bookmark the page.
+
 ## Viewer shortcuts
 
 On macOS, use Cmd instead of Ctrl.
@@ -71,10 +80,13 @@ On macOS, use Cmd instead of Ctrl.
 | New tab, close tab | Ctrl+T, Ctrl+W |
 | Switch tabs | Ctrl+Tab, Ctrl+1…9 |
 | Open link in new tab | Middle-click or Ctrl+click |
+| Close a tab | Middle-click the tab |
 | Find | Ctrl+F (next: Enter or F3, previous: Shift+Enter) |
 | Zoom in, out, reset | Ctrl+=, Ctrl+-, Ctrl+0 |
 | View source (.htex) | Ctrl+U |
-| Back, forward | Alt+←, Alt+→ |
+| Back, forward, home | Alt+←, Alt+→, Alt+Home |
 | Reload, address bar | Ctrl+R, Ctrl+L |
+| Bookmark this page, show or hide the bookmarks bar | Ctrl+D, Ctrl+Shift+B |
 
-Choose the theme (system, light, dark) from the View menu. Local documents you have open redraw automatically each time you save them.
+Choose the theme (system, light, dark) and the home page from the ⋮ menu. Local documents you have open redraw
+automatically each time you save them.

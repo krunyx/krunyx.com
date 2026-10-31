@@ -32,7 +32,7 @@ If macro expansion exceeds its limit, a red error marker appears in place.
 | Parser | Turns `.htex` and `.tex` sources into a document tree |
 | HTML renderer | Renders the tree as HTML with MathML |
 | Figure renderer | Converts TikZ and pgfplots figures to SVG |
-| Viewer | A desktop browser with tabs and an address bar (PySide6) |
+| Viewer | A desktop browser laid out like Chrome: tabs, address bar, bookmarks (PySide6) |
 | Web server | Serves documents to ordinary browsers |
 
 The parser, renderer and server use only the Python standard library.
