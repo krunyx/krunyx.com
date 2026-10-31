@@ -22,8 +22,7 @@ from pathlib import Path
 # name -> display-math body. Keep these in sync with the code shown on the pages.
 FORMULAS = {
     "hero": r"""
-\hangulsum\tiut_{k=1}^{n} \giug_k^{\,2}
-\;\le\; \Bigl(\hangulsum\tiut_{k=1}^{n} \giug_k\Bigr)^{2},
+\giug_{\ah}(x) = \sum_{k} \niun_k\, x^k,
 \qquad
 \mium^2 \vec{A} = -\mu_0 \vec{J}
 """,
@@ -31,10 +30,9 @@ FORMULAS = {
 \giug(z) = \frac{1}{\Gamma(z)}, \qquad
 \mium = \nabla^2 - \frac{1}{c^2}\frac{\partial^2}{\partial t^2}
 """,
-    "operators": r"""
-\hangulsum\tiut_{k=1}^{n} k = \frac{n(n+1)}{2}, \qquad
-\hangulint\diud_{-\infty}^{\infty} e^{-x^2}\,dx = \sqrt{\pi}, \qquad
-\hangullim\liul_{n\to\infty}\Bigl(1+\frac1n\Bigr)^{n} = e
+    "limits": r"""
+\mathop{\liul}\limits_{n\to\infty}\Bigl(1+\frac1n\Bigr)^{n} = e, \qquad
+{}_2\biub_1(a,b;c;z) = \sum_{n\ge0}\frac{(a)_n(b)_n}{(c)_n\,n!}\,z^n
 """,
     "brackets": r"""
 \eoh\psi|\phi\ah = \int \psi^*\phi\,dx, \qquad
@@ -64,7 +62,6 @@ PACKAGE_FILES = [
     "hangulmath.sty",
     "hangulmath-metrics.def",
     "hangulmath-sans.otf",
-    "hangulmath-sans-light.otf",
 ]
 
 TEMPLATE = r"""\documentclass[border=2pt,12pt]{standalone}
