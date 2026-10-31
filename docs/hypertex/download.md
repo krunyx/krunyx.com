@@ -1,6 +1,6 @@
 # Download HyperTeX
 
-The latest version is **v0.3.0** (October 2026). See [what's new](changelog.md#v0-3-0).
+The latest version is **v0.4.0** (October 2026). See [what's new](changelog.md#v0-4-0).
 All installers are also on the [GitHub releases page](https://github.com/krunyx/hypertex/releases/latest).
 
 [Open the latest release](https://github.com/krunyx/hypertex/releases/latest){ .md-button .md-button--primary }
@@ -11,8 +11,8 @@ All installers are also on the [GitHub releases page](https://github.com/krunyx/
 
     | Download | For |
     | --- | --- |
-    | [HyperTeX-0.3.0-macos-arm64.dmg](https://github.com/krunyx/hypertex/releases/download/v0.3.0/HyperTeX-0.3.0-macos-arm64.dmg) | Apple silicon (M1 and later) |
-    | [HyperTeX-0.3.0-macos-x86_64.dmg](https://github.com/krunyx/hypertex/releases/download/v0.3.0/HyperTeX-0.3.0-macos-x86_64.dmg) | Intel Macs |
+    | [HyperTeX-0.4.0-macos-arm64.dmg](https://github.com/krunyx/hypertex/releases/download/v0.4.0/HyperTeX-0.4.0-macos-arm64.dmg) | Apple silicon (M1 and later) |
+    | [HyperTeX-0.4.0-macos-x86_64.dmg](https://github.com/krunyx/hypertex/releases/download/v0.4.0/HyperTeX-0.4.0-macos-x86_64.dmg) | Intel Macs |
 
     1. Open the `.dmg` file.
     2. Drag HyperTeX into your Applications folder.
@@ -22,8 +22,8 @@ All installers are also on the [GitHub releases page](https://github.com/krunyx/
 
     | Download | For |
     | --- | --- |
-    | [HyperTeX-Setup-0.3.0.exe](https://github.com/krunyx/hypertex/releases/download/v0.3.0/HyperTeX-Setup-0.3.0.exe) | Installer for Windows 10 and 11 |
-    | [HyperTeX-0.3.0-windows-x64.zip](https://github.com/krunyx/hypertex/releases/download/v0.3.0/HyperTeX-0.3.0-windows-x64.zip) | Portable version: unzip and run `htex-viewer\htex-viewer.exe` |
+    | [HyperTeX-Setup-0.4.0.exe](https://github.com/krunyx/hypertex/releases/download/v0.4.0/HyperTeX-Setup-0.4.0.exe) | Installer for Windows 10 and 11 |
+    | [HyperTeX-0.4.0-windows-x64.zip](https://github.com/krunyx/hypertex/releases/download/v0.4.0/HyperTeX-0.4.0-windows-x64.zip) | Portable version: unzip and run `htex-viewer\htex-viewer.exe` |
 
     The installer works without administrator rights. After installing, `.htex` files and `htex://` links open in HyperTeX.
     The portable version does not register file types or links.
@@ -34,8 +34,8 @@ All installers are also on the [GitHub releases page](https://github.com/krunyx/
 
     | Download | How to install |
     | --- | --- |
-    | [HyperTeX-0.3.0-x86_64.AppImage](https://github.com/krunyx/hypertex/releases/download/v0.3.0/HyperTeX-0.3.0-x86_64.AppImage) | Make it executable and run it |
-    | [HyperTeX-0.3.0-linux-x86_64.tar.gz](https://github.com/krunyx/hypertex/releases/download/v0.3.0/HyperTeX-0.3.0-linux-x86_64.tar.gz) | Unpack and run `install.sh` |
+    | [HyperTeX-0.4.0-x86_64.AppImage](https://github.com/krunyx/hypertex/releases/download/v0.4.0/HyperTeX-0.4.0-x86_64.AppImage) | Make it executable and run it |
+    | [HyperTeX-0.4.0-linux-x86_64.tar.gz](https://github.com/krunyx/hypertex/releases/download/v0.4.0/HyperTeX-0.4.0-linux-x86_64.tar.gz) | Unpack and run `install.sh` |
 
     AppImage:
 
@@ -55,7 +55,7 @@ All installers are also on the [GitHub releases page](https://github.com/krunyx/
 !!! note "About the install warnings"
     This version is not yet code-signed by Apple or Microsoft, so your system warns on first launch.
     The installers are built by GitHub Actions directly from the public source code. Signing is planned for a future release.
-    To check a download, compare its SHA-256 with [SHA256SUMS.txt](https://github.com/krunyx/hypertex/releases/download/v0.3.0/SHA256SUMS.txt).
+    To check a download, compare its SHA-256 with [SHA256SUMS.txt](https://github.com/krunyx/hypertex/releases/download/v0.4.0/SHA256SUMS.txt).
 
 ## Install with Python
 

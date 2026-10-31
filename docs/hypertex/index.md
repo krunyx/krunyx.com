@@ -14,6 +14,7 @@ Scientists already think and write in LaTeX. HyperTeX aims to let those document
 
 - **Reads `.htex` documents**: equation numbers, cross-references, theorem environments, collapsible proofs and step-by-step derivations, exactly as written.
 - **Opens existing `.tex` files**: keep the extension and they load in compatibility mode, including common preamble macros, `\cref` and commutative diagrams (`\xymatrix`, `tikzcd`).
+- **Reads Markdown notes**: `.md` files open with their math, tables and footnotes, and links between notes work. Local `.html` files open too.
 - **Links documents together**: through `htex://` addresses and ordinary web URLs.
 - **Draws figures**: a subset of TikZ and pgfplots rendered as SVG.
 - **Makes parameters interactive**: values declared with `\parameter` become sliders, and equations and plots follow them.
@@ -29,7 +30,7 @@ If macro expansion exceeds its limit, a red error marker appears in place.
 
 | Component | What it does |
 | --- | --- |
-| Parser | Turns `.htex` and `.tex` sources into a document tree |
+| Parser | Turns `.htex`, `.tex` and `.md` sources into a document tree |
 | HTML renderer | Renders the tree as HTML with MathML |
 | Figure renderer | Converts TikZ and pgfplots figures to SVG |
 | Viewer | A desktop browser laid out like Chrome: tabs, address bar, bookmarks (PySide6) |
