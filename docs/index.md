@@ -98,8 +98,8 @@ geometric, unlike anything in Latin or Greek, and each with a name you can type.
 Korean documents still sit in the binary HWP format, while institutions move to the open, XML-based HWPX.
 hwp2x converts them one file or a whole folder at a time, on Windows, macOS and Linux.
 
-- **v0.1.0** converts HWP to HWPX, faithfully. Enough for most people.
-- **v0.2.0** also makes a first draft in Word, Markdown, HTML, LaTeX or HyperTeX, with equations translated, ready to finish by hand.
+It makes a faithful HWPX copy by default, and can also make a first draft in Word, Markdown, HTML, LaTeX or HyperTeX, with equations translated.
+The latest version, v0.2.1, handles documents of hundreds or thousands of pages.
 
-[Choose a version](hwp2x/index.md#versions){ .md-button .md-button--primary }
+[Download hwp2x](hwp2x/index.md#download){ .md-button .md-button--primary }
 [How to use](hwp2x/index.md#use){ .md-button }

@@ -358,3 +358,12 @@ body { word-break: keep-all; overflow-wrap: break-word; }
 @media (prefers-reduced-motion: reduce) {
   .md-header__button.kx-translate { transition: none; }
 }
+
+/* 앱 스크린샷 (hwp2x 사용법) */
+.md-typeset .kx-shot { margin: 1.4rem 0 1.6rem; text-align: left; }
+.md-typeset .kx-shot img {
+  display: block; width: 100%; max-width: 645px; height: auto;
+  border: 1px solid var(--md-default-fg-color--lightest); border-radius: 10px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.28);
+}
+.md-typeset .kx-shot figcaption { max-width: 645px; margin: 0.6rem 0 0; font-size: 0.72rem; color: var(--kx-muted); text-align: left; }
