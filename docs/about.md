@@ -1,5 +1,10 @@
 # Company
 
+<div class="kx-brand" markdown>
+![krunyx](assets/images/brand/logo-on-dark.svg){ .kx-only-dark }
+![krunyx](assets/images/brand/logo-on-light.svg){ .kx-only-light }
+</div>
+
 krunyx is a team in Korea building a computing environment for scientists.
 Starting with HyperTeX, we will build an operating system, an AI layer and hardware, in that order.
 The full plan is on the [roadmap](roadmap.md).
