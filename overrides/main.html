@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{#- Favicons for every browser: SVG for modern ones, ICO for the rest,
+    and a PNG for the iOS home screen. The files live at the site root. -#}
+{% block extrahead %}
+  <link rel="icon" href="{{ 'favicon.ico' | url }}" sizes="32x32">
+  <link rel="apple-touch-icon" href="{{ 'apple-touch-icon.png' | url }}">
+  <meta name="theme-color" content="#0A111E" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#FAFBFD" media="(prefers-color-scheme: light)">
+{% endblock %}
