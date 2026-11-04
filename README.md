@@ -22,7 +22,7 @@ mkdocs serve
 | 홈 아래쪽(스택, HyperTeX 소개) | `docs/index.md` |
 | HyperTeX 페이지들 | `docs/hypertex/*.md` |
 | 색, 글꼴 크기, 여백 | `docs/assets/stylesheets/extra.css` 맨 위 색 토큰 |
-| 로고 | `docs/assets/images/krunyx-mark.svg` |
+| 로고 | `docs/assets/images/brand/` (브랜드 키트에서 `python tools/brand_assets.py <키트 폴더>`로 다시 만든다) |
 
 새 페이지는 `docs/` 안에 `.md` 파일을 만들고 `mkdocs.yml`의 `nav`에 한 줄 추가하면 됩니다.
 

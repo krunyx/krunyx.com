@@ -1,33 +1,37 @@
 /* krunyx 사이트 스타일.
    색은 아래 토큰만 바꾸면 사이트 전체가 따라 바뀐다.
-   청자(celadon) 녹청색 하나만 강조색으로 쓴다. */
+   색은 브랜드 키트(krunyx Flow 1.0)를 따른다:
+   Ink #080E1B, Navy #34435E, Silver #A0A8B7, Pearl #FAFBFD, Blue #3159AB.
+   강조색은 Blue 하나만 쓴다. */
 
 :root {
-  --kx-paper: #F6F7F4;
-  --kx-ink: #18222D;
-  --kx-muted: #5B6670;
-  --kx-rule: #D5DBD6;
-  --kx-celadon: #3B7A70;
-  --kx-celadon-strong: #2C5F57;
-  --kx-celadon-wash: #E3EEEA;
-  --kx-code-bg: #EDF0EC;
+  --kx-paper: #FAFBFD;          /* Pearl */
   --kx-surface: #FFFFFF;
-  --kx-on-accent: #F6F7F4;
+  --kx-ink: #101828;
+  --kx-muted: #566176;
+  --kx-rule: #D8DEE8;
+  --kx-accent: #3159AB;         /* Blue */
+  --kx-accent-strong: #233F7A;
+  --kx-accent-wash: #E7EDF8;
+  --kx-code-bg: #EEF1F6;
+  --kx-on-accent: #FAFBFD;
+  --kx-glow: rgba(49, 89, 171, 0.10);
 }
 
 [data-md-color-scheme="slate"] {
-  /* Default scheme. A deep blue-slate ground rather than flat black,
-     with two surface steps so panels separate without shadows. */
-  --kx-paper: #10171D;
-  --kx-surface: #151E25;
-  --kx-ink: #E3E8E5;
-  --kx-muted: #93A1A9;
-  --kx-rule: #24303A;
-  --kx-celadon: #7CBCAF;
-  --kx-celadon-strong: #A2D5CA;
-  --kx-celadon-wash: #16282A;
-  --kx-code-bg: #18222A;
-  --kx-on-accent: #0B1A17;
+  /* Default scheme. The deep navy of the brand wallpaper, close to Ink,
+     with one lighter surface step so panels separate without shadows. */
+  --kx-paper: #0A111E;
+  --kx-surface: #0F192A;
+  --kx-ink: #E6EAF1;
+  --kx-muted: #9AA5B7;          /* Silver, lifted for small text */
+  --kx-rule: #1E2B40;
+  --kx-accent: #8DB2EE;
+  --kx-accent-strong: #B7CEF6;
+  --kx-accent-wash: #14223B;
+  --kx-code-bg: #111C2E;
+  --kx-on-accent: #07101F;
+  --kx-glow: rgba(70, 115, 200, 0.22);
 }
 
 /* Material 색 토큰을 우리 토큰에 연결 */
@@ -39,8 +43,8 @@
   --md-primary-bg-color--light: var(--kx-muted);
 }
 [data-md-color-accent="custom"] {
-  --md-accent-fg-color: var(--kx-celadon-strong);
-  --md-accent-fg-color--transparent: var(--kx-celadon-wash);
+  --md-accent-fg-color: var(--kx-accent-strong);
+  --md-accent-fg-color--transparent: var(--kx-accent-wash);
 }
 [data-md-color-scheme="default"],
 [data-md-color-scheme="slate"] {
@@ -48,7 +52,7 @@
   --md-default-fg-color: var(--kx-ink);
   --md-default-fg-color--light: var(--kx-muted);
   --md-typeset-color: var(--kx-ink);
-  --md-typeset-a-color: var(--kx-celadon);
+  --md-typeset-a-color: var(--kx-accent);
   --md-code-bg-color: var(--kx-code-bg);
   --md-footer-bg-color: var(--kx-paper);
   --md-footer-bg-color--dark: var(--kx-paper);
@@ -63,7 +67,7 @@
 .md-tabs { border-bottom: 1px solid var(--kx-rule); }
 .md-header { border-bottom: 1px solid transparent; }
 .md-tabs__link { opacity: 0.8; font-size: 0.72rem; }
-.md-tabs__item--active .md-tabs__link { opacity: 1; color: var(--kx-celadon); }
+.md-tabs__item--active .md-tabs__link { opacity: 1; color: var(--kx-accent); }
 .md-header__button.md-logo img { height: 1.5rem; }
 .md-footer { border-top: 1px solid var(--kx-rule); }
 .md-footer-meta { background: var(--kx-paper); }
@@ -73,7 +77,7 @@ body { word-break: keep-all; overflow-wrap: break-word; }
 
 /* 검색창을 머리글 바탕에 맞춘다 */
 .md-search__form { background-color: var(--kx-code-bg); }
-.md-search__form:hover { background-color: var(--kx-celadon-wash); }
+.md-search__form:hover { background-color: var(--kx-accent-wash); }
 .md-search__input::placeholder,
 .md-search__input + .md-search__icon { color: var(--kx-muted); }
 .md-search__input { color: var(--kx-ink); }
@@ -94,27 +98,27 @@ body { word-break: keep-all; overflow-wrap: break-word; }
 .kx-hero .md-button {
   border-radius: 6px;
   border-width: 1.5px;
-  border-color: var(--kx-celadon);
-  color: var(--kx-celadon);
+  border-color: var(--kx-accent);
+  color: var(--kx-accent);
   font-weight: 600;
   padding: 0.55em 1.3em;
   transition: background-color 120ms ease, color 120ms ease;
 }
 .md-typeset .md-button--primary,
 .kx-hero .md-button--primary {
-  background: var(--kx-celadon);
+  background: var(--kx-accent);
   color: var(--kx-on-accent);
 }
 .md-typeset .md-button:hover,
 .md-typeset .md-button:focus-visible,
 .kx-hero .md-button:hover,
 .kx-hero .md-button:focus-visible {
-  background: var(--kx-celadon-strong);
-  border-color: var(--kx-celadon-strong);
+  background: var(--kx-accent-strong);
+  border-color: var(--kx-accent-strong);
   color: var(--kx-on-accent);
 }
 .md-typeset .md-button:focus-visible,
-.kx-hero a:focus-visible { outline: 2px solid var(--kx-celadon); outline-offset: 3px; }
+.kx-hero a:focus-visible { outline: 2px solid var(--kx-accent); outline-offset: 3px; }
 
 /* ---------- 홈: 첫 화면 ---------- */
 .kx-hero { border-bottom: 1px solid var(--kx-rule); }
@@ -169,7 +173,7 @@ body { word-break: keep-all; overflow-wrap: break-word; }
 .kx-demo__h { font-size: 0.95rem; font-weight: 600; margin: 0 0 0.4rem; }
 .kx-demo__eq { display: grid; grid-template-columns: 1fr auto; align-items: center; }
 .kx-demo__eqno { color: var(--kx-muted); font-size: 0.75rem; }
-.kx-demo__pane--render a { color: var(--kx-celadon); }
+.kx-demo__pane--render a { color: var(--kx-accent); }
 
 /* ---------- 홈: 스택 ---------- */
 .md-typeset .kx-stack { max-width: 44rem; margin: 1.5rem 0; display: grid; gap: 0.45rem; }
@@ -183,14 +187,14 @@ body { word-break: keep-all; overflow-wrap: break-word; }
   border-radius: 8px;
 }
 .md-typeset a.kx-stack__layer { color: inherit; }
-.md-typeset .kx-stack__layer--live { border-color: var(--kx-celadon); background: var(--kx-celadon-wash); }
+.md-typeset .kx-stack__layer--live { border-color: var(--kx-accent); background: var(--kx-accent-wash); }
 .md-typeset .kx-stack__layer { background: var(--kx-surface); }
-.md-typeset .kx-stack__layer.kx-stack__layer--live { background: var(--kx-celadon-wash); }
-.md-typeset a.kx-stack__layer--live:hover .kx-stack__name { color: var(--kx-celadon); }
+.md-typeset .kx-stack__layer.kx-stack__layer--live { background: var(--kx-accent-wash); }
+.md-typeset a.kx-stack__layer--live:hover .kx-stack__name { color: var(--kx-accent); }
 .kx-stack__name { font-weight: 600; }
 .kx-stack__desc { color: var(--kx-muted); font-size: 0.8rem; }
 .kx-stack__status { font-size: 0.7rem; color: var(--kx-muted); white-space: nowrap; }
-.kx-stack__layer--live .kx-stack__status { color: var(--kx-celadon); font-weight: 600; }
+.kx-stack__layer--live .kx-stack__status { color: var(--kx-accent); font-weight: 600; }
 
 /* ---------- 홈: HyperTeX 특징 ---------- */
 .md-typeset .kx-points {
@@ -199,7 +203,7 @@ body { word-break: keep-all; overflow-wrap: break-word; }
   gap: 1.8rem;
   margin: 1.5rem 0 2rem;
 }
-.md-typeset .kx-points > div { border-left: 2px solid var(--kx-celadon); padding-left: 1rem; }
+.md-typeset .kx-points > div { border-left: 2px solid var(--kx-accent); padding-left: 1rem; }
 .md-typeset .kx-points p { font-size: 0.8rem; color: var(--kx-muted); margin: 0.3rem 0 0; }
 /* 두 가지 중 하나를 고르는 카드 (hwp2x 버전 선택) */
 .md-typeset .kx-points--two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -320,8 +324,8 @@ body { word-break: keep-all; overflow-wrap: break-word; }
 }
 .md-header__button.kx-translate svg { width: 1rem; height: 1rem; fill: currentColor; }
 .md-header__button.kx-translate:hover,
-.md-header__button.kx-translate:focus-visible { border-color: var(--kx-celadon); color: var(--kx-celadon); opacity: 1; }
-.md-header__button.kx-translate:focus-visible { outline: 2px solid var(--kx-celadon); outline-offset: 2px; }
+.md-header__button.kx-translate:focus-visible { border-color: var(--kx-accent); color: var(--kx-accent); opacity: 1; }
+.md-header__button.kx-translate:focus-visible { outline: 2px solid var(--kx-accent); outline-offset: 2px; }
 @media (max-width: 30em) {
   .md-header__button.kx-translate .kx-translate__label { display: none; }
   .md-header__button.kx-translate { border: 0; padding: 0.25rem; }
@@ -348,9 +352,9 @@ body { word-break: keep-all; overflow-wrap: break-word; }
 .kx-translate-note__close {
   font: inherit;
   font-weight: 600;
-  color: var(--kx-celadon);
+  color: var(--kx-accent);
   background: none;
-  border: 1px solid var(--kx-celadon);
+  border: 1px solid var(--kx-accent);
   border-radius: 6px;
   padding: 0.2rem 0.8rem;
   cursor: pointer;
@@ -367,3 +371,56 @@ body { word-break: keep-all; overflow-wrap: break-word; }
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.28);
 }
 .md-typeset .kx-shot figcaption { max-width: 645px; margin: 0.6rem 0 0; font-size: 0.72rem; color: var(--kx-muted); text-align: left; }
+
+/* ---------- 브랜드 로고 ---------- */
+/* 큰 화면 머리글: 심볼+워드마크 로고. 사이트 이름 글자는 로고가 대신한다. */
+/* 색 구성표에 맞는 그림 하나만 보인다 (Material 규칙보다 우선하도록 !important) */
+[data-md-color-scheme="slate"] .kx-only-light,
+[data-md-color-scheme="default"] .kx-only-dark { display: none !important; }
+
+.md-header__button.md-logo { padding: 0.3rem; margin-right: 0.3rem; }
+.md-header__button.md-logo img.kx-logo--symbol { display: none; }
+.md-header__button.md-logo img.kx-logo--lockup { height: 1.55rem; width: auto; }
+@media screen and (min-width: 76.25em) {
+  .md-header__title .md-header__topic:first-child .md-ellipsis {
+    position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+  }
+}
+/* 작은 화면 머리글과 탐색 서랍: 심볼만 보이고 옆에 사이트 이름 */
+.md-nav__button.md-logo .kx-logo--lockup { display: none !important; }
+.md-nav__button.md-logo img.kx-logo--symbol { height: 2.2rem; width: auto; }
+@media screen and (max-width: 76.234375em) {
+  .md-header__button.md-logo { display: block; order: 0; margin: 0 0 0 -0.2rem; }
+  .md-header__inner > label.md-header__button[for="__drawer"] { order: -1; }
+  .md-header__button.md-logo .kx-logo--lockup { display: none !important; }
+  .md-header__button.md-logo img.kx-logo--symbol { display: block; height: 1.5rem; width: auto; }
+}
+/* 사이트 이름은 워드마크처럼 소문자, 조금 굵게 */
+.md-header__topic:first-child { font-weight: 600; letter-spacing: -0.01em; }
+
+/* ---------- 홈: 브랜드 물결 배경 ---------- */
+/* 브랜드 배경화면의 리본만 따로 떼어낸 그림(tools/brand_assets.py)을
+   첫 화면 아래쪽에 깔고, 왼쪽 위에 은은한 빛을 둔다. */
+.kx-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: radial-gradient(ellipse 55% 75% at 22% 0%, var(--kx-glow), transparent 70%), var(--kx-paper);
+}
+.kx-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: url("../images/brand/hero-waves-dark.svg") center bottom / cover no-repeat;
+}
+[data-md-color-scheme="default"] .kx-hero::before {
+  background-image: url("../images/brand/hero-waves-light.svg");
+  opacity: 0.25;
+}
+.kx-hero__inner { padding-bottom: 5.5rem; }
+
+/* ---------- 회사 소개: 로고 ---------- */
+.md-typeset .kx-brand { margin: 0.5rem 0 2rem; }
+.md-typeset .kx-brand img { height: 3.4rem; width: auto; }

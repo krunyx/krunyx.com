@@ -10,8 +10,8 @@ theme:
   name: material
   custom_dir: overrides
   language: en
-  logo: assets/images/krunyx-mark.svg
-  favicon: assets/images/krunyx-mark.svg
+  logo: assets/images/brand/symbol.svg
+  favicon: favicon.svg
   font:
     text: IBM Plex Sans
     code: IBM Plex Mono
