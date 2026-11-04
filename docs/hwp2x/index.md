@@ -6,7 +6,7 @@ HWPX is the open, XML-based successor to the binary HWP format, and Korean publi
 hwp2x converts HWP files one at a time or a whole folder at once, on Windows, macOS and Linux.
 Java is bundled, so there is nothing else to install.
 
-[Download v0.2.1](#download){ .md-button .md-button--primary }
+[Download v0.2.2](#download){ .md-button .md-button--primary }
 [How to use](#use){ .md-button }
 [Report a problem](#feedback){ .md-button }
 
@@ -22,17 +22,26 @@ Java is bundled, so there is nothing else to install.
 
 ## Download { #download }
 
-The latest version is **v0.2.1** (November 2026). It is the version we recommend for everyone, whether you only need HWPX or want another format.
-[Release page](https://github.com/krunyx/hwp2x/releases/tag/v0.2.1)
+The latest version is **v0.2.2** (November 2026). It is the version we recommend for everyone, whether you only need HWPX or want another format.
+[Release page](https://github.com/krunyx/hwp2x/releases/tag/v0.2.2)
 
 | System | Download | Size |
 | --- | --- | --- |
-| Windows 10/11, 64-bit | [hwp2x-0.2.1-windows-x64.zip](https://github.com/krunyx/hwp2x/releases/download/v0.2.1/hwp2x-0.2.1-windows-x64.zip) | 67 MB |
-| macOS, Apple silicon (M1 and later) | [hwp2x-0.2.1-macos-arm64.dmg](https://github.com/krunyx/hwp2x/releases/download/v0.2.1/hwp2x-0.2.1-macos-arm64.dmg) | 60 MB |
-| macOS, Intel | [hwp2x-0.2.1-macos-x64.dmg](https://github.com/krunyx/hwp2x/releases/download/v0.2.1/hwp2x-0.2.1-macos-x64.dmg) | 64 MB |
-| Linux, 64-bit | [hwp2x-0.2.1-linux-x64.tar.gz](https://github.com/krunyx/hwp2x/releases/download/v0.2.1/hwp2x-0.2.1-linux-x64.tar.gz) | 102 MB |
+| Windows 10/11, 64-bit | [hwp2x-0.2.2-windows-x64.zip](https://github.com/krunyx/hwp2x/releases/download/v0.2.2/hwp2x-0.2.2-windows-x64.zip) | 67 MB |
+| macOS, Apple silicon (M1 and later) | [hwp2x-0.2.2-macos-arm64.dmg](https://github.com/krunyx/hwp2x/releases/download/v0.2.2/hwp2x-0.2.2-macos-arm64.dmg) | 60 MB |
+| macOS, Intel | [hwp2x-0.2.2-macos-x64.dmg](https://github.com/krunyx/hwp2x/releases/download/v0.2.2/hwp2x-0.2.2-macos-x64.dmg) | 64 MB |
+| Linux, 64-bit | [hwp2x-0.2.2-linux-x64.tar.gz](https://github.com/krunyx/hwp2x/releases/download/v0.2.2/hwp2x-0.2.2-linux-x64.tar.gz) | 103 MB |
 
-### What's new in v0.2.1 { #whats-new }
+### What's new { #whats-new }
+
+**v0.2.2**
+
+- The bottom of the window shows the version and copyright (hwp2x 0.2.2 · © 2026 krunyx). Click it to open **프로그램 정보** (About), with links to krunyx.com, the source code and the latest version, and the open-source notices.
+  On macOS it is also in the app menu as **hwp2x에 관하여** (About hwp2x).
+- The app has the krunyx icon. On Windows the version and copyright appear in the exe's **Properties → Details**; on macOS in Finder's **Get Info**.
+- On Linux, `install.sh` adds hwp2x to your application menu.
+
+**v0.2.1**
 
 - **Long documents now convert.** Documents of several hundred pages could fail because the converter ran out of memory.
   It now processes a document in parts and needs about a quarter of the memory it did
@@ -66,9 +75,13 @@ v0.2.0 added Word, Markdown, HTML, LaTeX and HyperTeX output, `.hwpx` input and 
 
     ```bash
     tar xzf hwp2x-*-linux-x64.tar.gz
+    ./hwp2x/install.sh       # optional: add hwp2x to your application menu
     ./hwp2x/hwp2x-gui        # the app
     ./hwp2x/hwp2x --help     # the command line
     ```
+
+    `install.sh` adds a menu entry for your user only and needs no administrator rights.
+    It points to the unpacked folder, so keep the folder where it is, or run `install.sh` again after moving it.
 
     Requires glibc 2.35 or later (Ubuntu 22.04 and newer).
     On a minimal system install `libegl1` and `libxkbcommon0`, and a Korean font such as `fonts-noto-cjk` so file names display correctly.
@@ -119,6 +132,14 @@ Double-click a row to open its result.
 | △ 완료 (확인) | Converted, but check it. The message says why: for example, a chart (OLE object) that cannot be carried into the chosen format, or a font name with characters XML does not allow. |
 | – 건너뜀 | Skipped, because a result file with that name already exists |
 | ✘ 실패 | Not converted. The reason is shown next to it, such as a [distribution document](#limits). |
+
+The line at the very bottom shows the version, for example **hwp2x 0.2.2 · © 2026 krunyx**.
+Click it to open **프로그램 정보** (About), which links to this site, the source code and **최신 버전 확인** (Check for the latest version).
+
+<figure class="kx-shot kx-shot--small" markdown>
+[![The hwp2x About window: krunyx logo, hwp2x version 0.2.2, a one-line description, copyright and license, links to krunyx.com, the source code and the latest version, and the open-source components it uses](../assets/images/hwp2x/app-about.png){ width="375" loading="lazy" }](../assets/images/hwp2x/app-about.png)
+<figcaption>The About window.</figcaption>
+</figure>
 
 ### The command line
 
@@ -201,10 +222,11 @@ HyperTeX has no vertical cell merging or strikethrough, so merged cells keep the
 !!! warning "v0.1.0 cannot convert long documents"
     v0.1.0 converts only to HWPX and loads the whole document into memory at once,
     so documents of a few hundred pages or more can fail with an out-of-memory error.
-    **Please use the latest version, [v0.2.1](#download).** It makes exactly the same HWPX files, since HWPX is still its default output, and handles long documents.
+    **Please use the latest version, [v0.2.2](#download).** It makes exactly the same HWPX files, since HWPX is still its default output, and handles long documents.
 
 Older releases stay available on GitHub for reference:
-[v0.2.0](https://github.com/krunyx/hwp2x/releases/tag/v0.2.0) (first version with other formats; replaced by v0.2.1) and
+[v0.2.1](https://github.com/krunyx/hwp2x/releases/tag/v0.2.1),
+[v0.2.0](https://github.com/krunyx/hwp2x/releases/tag/v0.2.0) (first version with other formats) and
 [v0.1.0](https://github.com/krunyx/hwp2x/releases/tag/v0.1.0) (HWPX only).
 
 ## Report a problem or send feedback { #feedback }
@@ -230,7 +252,7 @@ otherwise a description, or a copy with the text replaced, is enough.
 hwp2x is released under the [Apache License 2.0](https://github.com/krunyx/hwp2x/blob/main/LICENSE).
 The conversion engine is built from neolord0's [hwplib](https://github.com/neolord0/hwplib),
 [hwpxlib](https://github.com/neolord0/hwpxlib) and [hwp2hwpx](https://github.com/neolord0/hwp2hwpx), all Apache-2.0.
-The bundled Java runtime is OpenJDK (GPLv2 with the Classpath Exception), and Pillow (HPND license) is used for image conversion.
+The bundled Java runtime is OpenJDK (GPLv2 with the Classpath Exception). The app window uses Qt for Python (LGPLv3), and Pillow (HPND license) is used for image conversion. The same notices are in the app's About window.
 
 “본 제품은 한글과컴퓨터의 HWP 문서 파일(.hwp) 공개 문서를 참고하여 개발하였습니다.”
 <br><small>(This product was developed with reference to Hancom's published HWP document file format specification.)</small>
