@@ -2,6 +2,22 @@
 
 Each new version is added at the top.
 
+## v0.6.0 { #v0-6-0 }
+
+November 2026. PDF figures from pdflatex papers, and an English interface.
+
+- **PDF figures**: `\includegraphics{fig.pdf}` now shows the figure. The viewer draws the first page at twice
+  screen resolution, so figures keep their original size and stay sharp
+- **Figures without an extension**: `\includegraphics{fig}` finds the file the way LaTeX does, trying
+  `.svg`, `.png`, `.jpg` and then `.pdf`
+- **English or Korean**: menus, buttons and messages follow your system language: Korean if your system is
+  in Korean, English otherwise. Change it under ⋮ › Language (takes effect after restarting)
+- **Document labels follow the document**: an English paper shows "Figure 1", "Proof" and "References";
+  a Korean document shows 그림, 증명 and 참고문헌, whatever the interface language
+- `htex build`: when a page uses a PDF figure, the site uses an SVG or PNG with the same name if there is one,
+  and warns otherwise (web browsers cannot show PDF figures)
+- EPS figures are not supported; you get a warning asking for PDF, SVG or PNG instead
+
 ## v0.5.0 { #v0-5-0 }
 
 November 2026. On macOS, tabs now sit at the very top of the window, just like Chrome.
