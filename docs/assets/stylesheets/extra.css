@@ -424,3 +424,7 @@ body { word-break: keep-all; overflow-wrap: break-word; }
 /* ---------- 회사 소개: 로고 ---------- */
 .md-typeset .kx-brand { margin: 0.5rem 0 2rem; }
 .md-typeset .kx-brand img { height: 3.4rem; width: auto; }
+.md-typeset .kx-shot--small img, .md-typeset .kx-shot--small figcaption { max-width: 375px; }
+
+/* 본문 글꼴의 문맥 대체(calt)가 "2x 0"을 "2× 0"으로 바꾼다. 제품 이름 hwp2x가 깨지지 않게 끈다. */
+body { font-feature-settings: "calt" 0; }
