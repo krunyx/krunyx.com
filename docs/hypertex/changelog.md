@@ -2,6 +2,20 @@
 
 Each new version is added at the top.
 
+## v0.5.0 { #v0-5-0 }
+
+November 2026. On macOS, tabs now sit at the very top of the window, just like Chrome.
+
+- **Tabs in the title bar (macOS)**: the tab strip moves up beside the red, yellow and green window buttons,
+  so the window loses a row and looks like Chrome. The buttons are centered on the tabs
+- **Works like a title bar**: drag an empty part of the tab strip to move the window; double-click it to
+  zoom or minimize, following your setting in System Settings › Desktop & Dock. Full screen hides the buttons
+  and the tabs move left
+- **Turn it off** in the menu bar under 보기 (View) › 탭을 제목 막대에 표시 (show tabs in the title bar)
+  if you prefer the old layout. It takes effect after restarting
+- Windows and Linux keep the system title bar above the tabs, as before
+- The download page now explains how to open the app on macOS 15 and later, where right-click › Open no longer works
+
 ## v0.4.0 { #v0-4-0 }
 
 October 2026. Read Markdown notes and open local HTML files.

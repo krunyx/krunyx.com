@@ -79,6 +79,9 @@ The viewer is laid out like Google Chrome. From the top: tabs, the toolbar (back
 the address bar and the ⋮ menu), the bookmarks bar, and the page. New tabs and the home button open a start page
 with an address box and shortcuts to your bookmarks.
 
+On macOS the tabs sit in the title bar, next to the red, yellow and green buttons, as in Chrome.
+Drag an empty part of the tab strip to move the window, and double-click it to zoom.
+
 The button at the left of the address bar shows the document's diagnostics, such as errors or compatibility mode.
 Click ☆ at the right to bookmark the page.
 
