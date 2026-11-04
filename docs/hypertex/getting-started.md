@@ -82,6 +82,9 @@ with an address box and shortcuts to your bookmarks.
 On macOS the tabs sit in the title bar, next to the red, yellow and green buttons, as in Chrome.
 Drag an empty part of the tab strip to move the window, and double-click it to zoom.
 
+The viewer's menus and messages follow your system language (Korean or English). To switch, open the
+⋮ menu › Language and restart HyperTeX.
+
 The button at the left of the address bar shows the document's diagnostics, such as errors or compatibility mode.
 Click ☆ at the right to bookmark the page.
 
