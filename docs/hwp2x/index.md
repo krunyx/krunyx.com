@@ -247,12 +247,33 @@ Writing in Korean is fine. It helps if you include:
 A sample file helps us fix problems fastest. Only send one if it contains nothing confidential;
 otherwise a description, or a copy with the text replaced, is enough.
 
-## License
+## License and disclaimer { #license }
 
-hwp2x is released under the [Apache License 2.0](https://github.com/krunyx/hwp2x/blob/main/LICENSE).
-The conversion engine is built from neolord0's [hwplib](https://github.com/neolord0/hwplib),
+**License.** hwp2x is free and open-source software, released under the
+[Apache License 2.0](https://github.com/krunyx/hwp2x/blob/main/LICENSE).
+You may use, copy, modify and redistribute it for personal, public-sector or commercial purposes, under the terms of that license.
+
+**No warranty.** hwp2x is provided "AS IS", without warranties or conditions of any kind, express or implied,
+including fitness for a particular purpose (Apache License 2.0, Section 7).
+
+**Limitation of liability.** In no event shall krunyx or the contributors be liable for any damages arising from
+the use of, or inability to use, hwp2x, including loss or corruption of documents or data (Section 8).
+
+**Check your results.** Conversion may not reproduce every detail of the original, and formats other than HWPX
+carry over content and structure, not page layout.
+hwp2x never changes or deletes the documents it converts: it writes new files next to them,
+and replaces an existing file of the same name only when you turn on overwriting.
+Before you rely on a converted document, especially an official, legal or financial one, compare it with the original.
+
+**Third-party components.** The conversion engine is built from neolord0's [hwplib](https://github.com/neolord0/hwplib),
 [hwpxlib](https://github.com/neolord0/hwpxlib) and [hwp2hwpx](https://github.com/neolord0/hwp2hwpx), all Apache-2.0.
-The bundled Java runtime is OpenJDK (GPLv2 with the Classpath Exception). The app window uses Qt for Python (LGPLv3), and Pillow (HPND license) is used for image conversion. The same notices are in the app's About window.
+The downloads also include OpenJDK (GPLv2 with the Classpath Exception), Qt for Python (LGPLv3) and Pillow (HPND), each under its own license.
+Full notices are in the [NOTICE](https://github.com/krunyx/hwp2x/blob/main/NOTICE) file.
+
+**Trademarks.** "한글", "HWP" and "HWPX" are trademarks of Hancom Inc.
+hwp2x is an independent project and is not affiliated with or endorsed by Hancom.
 
 “본 제품은 한글과컴퓨터의 HWP 문서 파일(.hwp) 공개 문서를 참고하여 개발하였습니다.”
 <br><small>(This product was developed with reference to Hancom's published HWP document file format specification.)</small>
+
+From the next release, the same terms also appear in the app's **프로그램 정보** (About) window, and `hwp2x --license` prints them on the command line.
