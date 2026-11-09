@@ -6,7 +6,7 @@ HWPX is the open, XML-based successor to the binary HWP format, and Korean publi
 hwp2x converts HWP files one at a time or a whole folder at once, on Windows, macOS and Linux.
 Java is bundled, so there is nothing else to install.
 
-[Download v0.2.3](#download){ .md-button .md-button--primary }
+[Download v0.2.4](#download){ .md-button .md-button--primary }
 [How to use](#use){ .md-button }
 [Report a problem](#feedback){ .md-button }
 
@@ -22,16 +22,21 @@ Java is bundled, so there is nothing else to install.
 
 ## Download { #download }
 
-The latest version is **v0.2.3** (November 2026). It is the version we recommend for everyone, whether you only need HWPX or want another format.
+The latest version is **v0.2.4** (November 2026). It is the version we recommend for everyone, whether you only need HWPX or want another format.
 
 | System | Download | Size |
 | --- | --- | --- |
-| Windows 10/11, 64-bit | [hwp2x-0.2.3-windows-x64.zip](https://github.com/krunyx/hwp2x/releases/download/v0.2.3/hwp2x-0.2.3-windows-x64.zip) | 67 MB |
-| macOS, Apple silicon (M1 and later) | [hwp2x-0.2.3-macos-arm64.dmg](https://github.com/krunyx/hwp2x/releases/download/v0.2.3/hwp2x-0.2.3-macos-arm64.dmg) | 60 MB |
-| macOS, Intel | [hwp2x-0.2.3-macos-x64.dmg](https://github.com/krunyx/hwp2x/releases/download/v0.2.3/hwp2x-0.2.3-macos-x64.dmg) | 64 MB |
-| Linux, 64-bit | [hwp2x-0.2.3-linux-x64.tar.gz](https://github.com/krunyx/hwp2x/releases/download/v0.2.3/hwp2x-0.2.3-linux-x64.tar.gz) | 103 MB |
+| Windows 10/11, 64-bit | [hwp2x-0.2.4-windows-x64.zip](https://github.com/krunyx/hwp2x/releases/download/v0.2.4/hwp2x-0.2.4-windows-x64.zip) | 67 MB |
+| macOS, Apple silicon (M1 and later) | [hwp2x-0.2.4-macos-arm64.dmg](https://github.com/krunyx/hwp2x/releases/download/v0.2.4/hwp2x-0.2.4-macos-arm64.dmg) | 60 MB |
+| macOS, Intel | [hwp2x-0.2.4-macos-x64.dmg](https://github.com/krunyx/hwp2x/releases/download/v0.2.4/hwp2x-0.2.4-macos-x64.dmg) | 64 MB |
+| Linux, 64-bit | [hwp2x-0.2.4-linux-x64.tar.gz](https://github.com/krunyx/hwp2x/releases/download/v0.2.4/hwp2x-0.2.4-linux-x64.tar.gz) | 103 MB |
 
 ### What's new { #whats-new }
+
+**v0.2.4**
+
+- In the About window, **최신 버전 확인** (Check for the latest version) now opens the [download section](#download) of this page.
+- Conversion is the same as in v0.2.3.
 
 **v0.2.3**
 
@@ -138,11 +143,11 @@ Double-click a row to open its result.
 | – 건너뜀 | Skipped, because a result file with that name already exists |
 | ✘ 실패 | Not converted. The reason is shown next to it, such as a [distribution document](#limits). |
 
-The line at the very bottom shows the version, for example **hwp2x 0.2.3 · © 2026 krunyx**.
+The line at the very bottom shows the version, for example **hwp2x 0.2.4 · © 2026 krunyx**.
 Click it to open **프로그램 정보** (About). It shows the [terms of use](#license) and links to this site and **최신 버전 확인** (Check for the latest version).
 
 <figure class="kx-shot kx-shot--small" markdown>
-[![The hwp2x About window: krunyx logo, hwp2x version 0.2.3, a one-line description, copyright and license, links, the terms of use (license, no warranty, limitation of liability, checking results, trademarks) and the open-source components it uses](../assets/images/hwp2x/app-about.png){ width="420" loading="lazy" }](../assets/images/hwp2x/app-about.png)
+[![The hwp2x About window: krunyx logo, hwp2x version 0.2.4, a one-line description, copyright and license, links to krunyx.com and the latest version, the terms of use (license, no warranty, limitation of liability, checking results, trademarks) and the open-source components it uses](../assets/images/hwp2x/app-about.png){ width="420" loading="lazy" }](../assets/images/hwp2x/app-about.png)
 <figcaption>The About window.</figcaption>
 </figure>
 
@@ -214,9 +219,10 @@ HyperTeX has no vertical cell merging or strikethrough, so merged cells keep the
 !!! warning "v0.1.0 cannot convert long documents"
     v0.1.0 converts only to HWPX and loads the whole document into memory at once,
     so documents of a few hundred pages or more can fail with an out-of-memory error.
-    **Please use the latest version, [v0.2.3](#download).** It makes exactly the same HWPX files, since HWPX is still its default output, and handles long documents.
+    **Please use the latest version, [v0.2.4](#download).** It makes exactly the same HWPX files, since HWPX is still its default output, and handles long documents.
 
 Older releases stay available on GitHub for reference:
+[v0.2.3](https://github.com/krunyx/hwp2x/releases/tag/v0.2.3),
 [v0.2.2](https://github.com/krunyx/hwp2x/releases/tag/v0.2.2),
 [v0.2.1](https://github.com/krunyx/hwp2x/releases/tag/v0.2.1),
 [v0.2.0](https://github.com/krunyx/hwp2x/releases/tag/v0.2.0) (first version with other formats) and
