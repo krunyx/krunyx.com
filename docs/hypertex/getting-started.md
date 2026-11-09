@@ -104,6 +104,11 @@ On macOS, use Cmd instead of Ctrl.
 | Back, forward, home | Alt+←, Alt+→, Alt+Home |
 | Reload, address bar | Ctrl+R, Ctrl+L |
 | Bookmark this page, show or hide the bookmarks bar | Ctrl+D, Ctrl+Shift+B |
+| Edit the source, save, save as | Ctrl+E, Ctrl+S, Ctrl+Shift+S |
 
 Choose the theme (system, light, dark) and the home page from the ⋮ menu. Local documents you have open redraw
 automatically each time you save them.
+
+To edit a document, press ✎ in the toolbar (or Ctrl+E). The source opens on the left and the preview on the right,
+and the preview follows as you type. Ctrl+S saves a local file. An online (`htex://`) document is saved as a copy on
+your computer, together with the files it uses. Press ✎ again to close the editor.

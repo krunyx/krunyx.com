@@ -2,6 +2,25 @@
 
 Each new version is added at the top.
 
+## v0.7.0 { #v0-7-0 }
+
+November 2026. Edit documents right in the viewer, with a live preview beside the source.
+
+- **Edit source**: press the ✎ button in the toolbar (or Ctrl+E) and the tab splits in two: the source on the left,
+  the rendered document on the right. Stop typing for a moment and the preview redraws, keeping your scroll position
+- **Works with `.htex`, `.tex`, `.md` and `.html`**: syntax highlighting, line numbers, bracket matching,
+  find and replace (Ctrl+F in the editor) and undo. The editor follows the light or dark theme
+- **Errors on the line**: errors and warnings from the document are marked next to the source lines that caused them
+- **Save local files** with Ctrl+S. Files stay UTF-8 with their original line endings. If another program changed the
+  file meanwhile, you are asked before it is replaced, and the original is backed up the first time you save
+- **Save a copy of an online document**: an `htex://` document cannot be saved back to its server, so Save As
+  downloads it together with the files it pulls in (`\input`, `\usemacros`, `\usestyle`, the bibliography and figures)
+  and keeps them in the same folder layout on your computer. You then keep editing your local copy
+- **Online documents show their `\input` files**: parts that a remote document pulls in with `\input` and similar
+  commands are now fetched from the same server and shown, instead of a "file not found" warning
+- While you edit, links in the preview open in a new tab, so you never leave the document you are working on.
+  Closing a tab or window with unsaved changes asks whether to save
+
 ## v0.6.0 { #v0-6-0 }
 
 November 2026. PDF figures from pdflatex papers, and an English interface.

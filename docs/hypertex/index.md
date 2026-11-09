@@ -15,6 +15,7 @@ Scientists already think and write in LaTeX. HyperTeX aims to let those document
 - **Reads `.htex` documents**: equation numbers, cross-references, theorem environments, collapsible proofs and step-by-step derivations, exactly as written.
 - **Opens existing `.tex` files**: keep the extension and they load in compatibility mode, including common preamble macros, `\cref` and commutative diagrams (`\xymatrix`, `tikzcd`).
 - **Reads Markdown notes**: `.md` files open with their math, tables and footnotes, and links between notes work. Local `.html` files open too.
+- **Edits with a live preview**: press ✎ to edit the source beside the rendered document, then save, or keep a local copy of an online document.
 - **Links documents together**: through `htex://` addresses and ordinary web URLs.
 - **Draws figures**: a subset of TikZ and pgfplots rendered as SVG, plus the PDF, SVG and PNG figures your paper already includes.
 - **Makes parameters interactive**: values declared with `\parameter` become sliders, and equations and plots follow them.
