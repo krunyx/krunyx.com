@@ -2,6 +2,15 @@
 
 Each new version is added at the top.
 
+## v0.7.2 { #v0-7-2 }
+
+November 2026. Fixes opening online documents in the downloaded app.
+
+- **Online documents failed with `CERTIFICATE_VERIFY_FAILED`**: the app could not verify HTTPS certificates on
+  most computers, so `htex://` addresses showed "Can't open this document". HyperTeX now uses your operating
+  system's trust store (the same one your browser uses), with a built-in certificate list as a fallback.
+  Local files were not affected
+
 ## v0.7.1 { #v0-7-1 }
 
 November 2026. Fixes found while writing the new [examples](examples.md).

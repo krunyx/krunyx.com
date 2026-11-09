@@ -86,7 +86,7 @@ extra_javascript:
 extra:
   generator: false
   hypertex:
-    version: "0.7.1"
+    version: "0.7.2"
     releases: https://github.com/krunyx/hypertex/releases/latest
   social:
     - icon: fontawesome/brands/github

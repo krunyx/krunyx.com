@@ -1,4 +1,4 @@
 mkdocs>=1.6,<2
 mkdocs-material>=9.5,<10
 # HyperTeX itself: converts the examples (examples/) into plain-web pages at build time (hooks/examples.py)
-htex @ https://github.com/krunyx/hypertex/archive/refs/tags/v0.7.1.tar.gz
+htex @ https://github.com/krunyx/hypertex/archive/refs/tags/v0.7.2.tar.gz
