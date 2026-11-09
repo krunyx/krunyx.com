@@ -1,0 +1,259 @@
+\documentclass{hypertex}
+\title{How an Epidemic Peaks: the SIR Model}
+\author{krunyx · HyperTeX examples}
+\date{November 2026}
+\keywords{epidemiology, SIR model, basic reproduction number, herd immunity}
+\abstract{The SIR model splits a population into the susceptible, the infected and the recovered. From three short equations it predicts whether an outbreak grows, how high it peaks and how many people it reaches in the end. Move the slider for the basic reproduction number $R_0$ to redraw the curves. A \href{briefing.md}{one-page briefing} turns the results into policy language.}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\dv}[2]{\frac{\dd #1}{\dd #2}}
+\newcommand{\Rz}{R_0}
+\parameter{\R}{1.1}{6}{2.5}[step=0.1]
+
+\begin{document}
+\maketitle
+
+\section{The model}\label{sec:model}
+Measure each group as a fraction of the population, so that $S + I + R = 1$. Infected people meet susceptible
+ones at a rate $\beta$ and recover at a rate $\gamma$ \cite{km1927}:
+\begin{align}
+  \dv{S}{t} &= -\beta S I, \label{eq:S} \\
+  \dv{I}{t} &= \beta S I - \gamma I, \label{eq:I} \\
+  \dv{R}{t} &= \gamma I. \label{eq:R}
+\end{align}
+The single number that matters is the \emph{basic reproduction number}
+\begin{equation}\label{eq:R0}
+  \Rz = \frac{\beta}{\gamma},
+\end{equation}
+the number of people one infected person infects in a fully susceptible population.
+The slider sets it to $\Rz = \showparam{\R}$.
+
+\begin{theorem}[Threshold]\label{thm:threshold}
+An outbreak that starts with almost everyone susceptible grows if and only if $\Rz > 1$.
+\end{theorem}
+
+\begin{proof}[collapsed]
+Equation~\eqref{eq:I} reads $\dv{I}{t} = \gamma I\,(\Rz S - 1)$. At the start $S \approx 1$, so $I$ grows exactly when $\Rz > 1$.
+\end{proof}
+
+\section{The epidemic curve}\label{sec:curve}
+The equations have no closed-form solution in time, so figure~\ref{fig:data} plots a numerical solution for
+$\Rz = 2.5$ and $\gamma = 0.1$ per day (the data are in \href{data/sir.csv}{data/sir.csv}).
+Figure~\ref{fig:family} compares three values of $\Rz$: a larger $\Rz$ peaks sooner and higher.
+
+\begin{figure}
+\begin{tikzpicture}
+\begin{axis}[xlabel={days}, ylabel={fraction of population}, xmin=0, xmax=160, ymin=0, ymax=1,
+             width=10cm, height=6cm, grid=major, legend pos=north east]
+\addplot[blue, thick] table[x=t, y=S, col sep=comma] {
+t,S,I,R
+0,0.9990,0.0010,0.0000
+4,0.9976,0.0018,0.0005
+8,0.9952,0.0033,0.0015
+12,0.9907,0.0060,0.0033
+16,0.9826,0.0108,0.0066
+20,0.9684,0.0191,0.0124
+24,0.9439,0.0334,0.0227
+28,0.9032,0.0565,0.0403
+32,0.8399,0.0907,0.0694
+36,0.7508,0.1349,0.1142
+40,0.6407,0.1816,0.1777
+44,0.5240,0.2179,0.2581
+48,0.4173,0.2335,0.3492
+52,0.3309,0.2271,0.4420
+56,0.2664,0.2049,0.5288
+60,0.2202,0.1749,0.6049
+64,0.1878,0.1437,0.6685
+68,0.1651,0.1148,0.7201
+72,0.1491,0.0900,0.7609
+76,0.1377,0.0696,0.7927
+80,0.1295,0.0533,0.8172
+84,0.1236,0.0406,0.8358
+88,0.1193,0.0307,0.8500
+92,0.1162,0.0231,0.8607
+96,0.1139,0.0174,0.8687
+100,0.1121,0.0131,0.8748
+104,0.1109,0.0098,0.8793
+108,0.1099,0.0073,0.8827
+112,0.1092,0.0055,0.8853
+116,0.1087,0.0041,0.8872
+120,0.1083,0.0031,0.8886
+124,0.1080,0.0023,0.8897
+128,0.1078,0.0017,0.8905
+132,0.1077,0.0013,0.8910
+136,0.1076,0.0010,0.8915
+140,0.1075,0.0007,0.8918
+144,0.1074,0.0005,0.8921
+148,0.1074,0.0004,0.8923
+152,0.1073,0.0003,0.8924
+156,0.1073,0.0002,0.8925
+160,0.1073,0.0002,0.8926
+};
+\addlegendentry{$S$}
+\addplot[orange, thick] table[x=t, y=I, col sep=comma] {
+t,S,I,R
+0,0.9990,0.0010,0.0000
+4,0.9976,0.0018,0.0005
+8,0.9952,0.0033,0.0015
+12,0.9907,0.0060,0.0033
+16,0.9826,0.0108,0.0066
+20,0.9684,0.0191,0.0124
+24,0.9439,0.0334,0.0227
+28,0.9032,0.0565,0.0403
+32,0.8399,0.0907,0.0694
+36,0.7508,0.1349,0.1142
+40,0.6407,0.1816,0.1777
+44,0.5240,0.2179,0.2581
+48,0.4173,0.2335,0.3492
+52,0.3309,0.2271,0.4420
+56,0.2664,0.2049,0.5288
+60,0.2202,0.1749,0.6049
+64,0.1878,0.1437,0.6685
+68,0.1651,0.1148,0.7201
+72,0.1491,0.0900,0.7609
+76,0.1377,0.0696,0.7927
+80,0.1295,0.0533,0.8172
+84,0.1236,0.0406,0.8358
+88,0.1193,0.0307,0.8500
+92,0.1162,0.0231,0.8607
+96,0.1139,0.0174,0.8687
+100,0.1121,0.0131,0.8748
+104,0.1109,0.0098,0.8793
+108,0.1099,0.0073,0.8827
+112,0.1092,0.0055,0.8853
+116,0.1087,0.0041,0.8872
+120,0.1083,0.0031,0.8886
+124,0.1080,0.0023,0.8897
+128,0.1078,0.0017,0.8905
+132,0.1077,0.0013,0.8910
+136,0.1076,0.0010,0.8915
+140,0.1075,0.0007,0.8918
+144,0.1074,0.0005,0.8921
+148,0.1074,0.0004,0.8923
+152,0.1073,0.0003,0.8924
+156,0.1073,0.0002,0.8925
+160,0.1073,0.0002,0.8926
+};
+\addlegendentry{$I$}
+\addplot[green!60!black, thick] table[x=t, y=R, col sep=comma] {
+t,S,I,R
+0,0.9990,0.0010,0.0000
+4,0.9976,0.0018,0.0005
+8,0.9952,0.0033,0.0015
+12,0.9907,0.0060,0.0033
+16,0.9826,0.0108,0.0066
+20,0.9684,0.0191,0.0124
+24,0.9439,0.0334,0.0227
+28,0.9032,0.0565,0.0403
+32,0.8399,0.0907,0.0694
+36,0.7508,0.1349,0.1142
+40,0.6407,0.1816,0.1777
+44,0.5240,0.2179,0.2581
+48,0.4173,0.2335,0.3492
+52,0.3309,0.2271,0.4420
+56,0.2664,0.2049,0.5288
+60,0.2202,0.1749,0.6049
+64,0.1878,0.1437,0.6685
+68,0.1651,0.1148,0.7201
+72,0.1491,0.0900,0.7609
+76,0.1377,0.0696,0.7927
+80,0.1295,0.0533,0.8172
+84,0.1236,0.0406,0.8358
+88,0.1193,0.0307,0.8500
+92,0.1162,0.0231,0.8607
+96,0.1139,0.0174,0.8687
+100,0.1121,0.0131,0.8748
+104,0.1109,0.0098,0.8793
+108,0.1099,0.0073,0.8827
+112,0.1092,0.0055,0.8853
+116,0.1087,0.0041,0.8872
+120,0.1083,0.0031,0.8886
+124,0.1080,0.0023,0.8897
+128,0.1078,0.0017,0.8905
+132,0.1077,0.0013,0.8910
+136,0.1076,0.0010,0.8915
+140,0.1075,0.0007,0.8918
+144,0.1074,0.0005,0.8921
+148,0.1074,0.0004,0.8923
+152,0.1073,0.0003,0.8924
+156,0.1073,0.0002,0.8925
+160,0.1073,0.0002,0.8926
+};
+\addlegendentry{$R$}
+\end{axis}
+\end{tikzpicture}
+\caption{Numerical solution of \eqref{eq:S}--\eqref{eq:R} for $\Rz = 2.5$, starting from $I = 0.001$.}\label{fig:data}
+\end{figure}
+
+\begin{figure}
+\includegraphics{figures/epidemic.png}
+\caption{Infected fraction over time for three reproduction numbers.}\label{fig:family}
+\end{figure}
+
+\section{Peak and final size without solving}\label{sec:exact}
+Dividing \eqref{eq:I} by \eqref{eq:S} removes time:
+\begin{steps}
+  \step $\dv{I}{S} = -1 + \dfrac{1}{\Rz S}$.
+  \step Integrate from $S = 1$, $I = 0$:
+        \begin{equation}\label{eq:orbit}
+          I = 1 - S + \frac{\ln S}{\Rz}.
+        \end{equation}
+  \step The peak is where $\dv{I}{S} = 0$, that is $S = 1/\Rz$:
+        \begin{equation}\label{eq:peak}
+          I_{\max} = 1 - \frac{1 + \ln \Rz}{\Rz}.
+        \end{equation}
+  \step The epidemic ends when $I = 0$ again. The fraction left untouched, $S_\infty$, solves
+        \begin{equation}\label{eq:final}
+          \ln S_\infty = \Rz\,(S_\infty - 1).
+        \end{equation}
+\end{steps}
+
+Figure~\ref{fig:phase} draws the orbit \eqref{eq:orbit} for the current slider value. The dashed line marks
+$S = 1/\Rz$, the \emph{herd-immunity threshold}: once fewer than this fraction remain susceptible, each case
+causes less than one new case and the outbreak shrinks.
+
+\begin{figure}
+\begin{tikzpicture}
+\begin{axis}[xlabel={susceptible $S$}, ylabel={infected $I$}, xmin=0, xmax=1, ymin=0, ymax=0.7,
+             width=10cm, height=6cm, grid=major]
+  \addplot[orange, thick, domain=0.002:1, samples=400] {max(1 - x + ln(x)/\R, 0)};
+  \addplot[gray, dashed] coordinates {(1/\R, 0) (1/\R, 0.7)};
+\end{axis}
+\end{tikzpicture}
+\caption{The path of the epidemic in the $(S, I)$ plane, equation~\eqref{eq:orbit}. Time runs from right to left.}\label{fig:phase}
+\end{figure}
+
+Table~\ref{tab:numbers} evaluates \eqref{eq:peak} and \eqref{eq:final} for a few reproduction numbers.
+
+\begin{table}
+\caption{What the reproduction number implies.}\label{tab:numbers}
+\begin{tabular}{|c|c|c|c|}
+  \hline
+  $\Rz$ & Peak infected $I_{\max}$ & Ever infected $1 - S_\infty$ & Herd-immunity threshold $1 - 1/\Rz$ \\
+  \hline
+  1.5 & 6.3\% & 58.3\% & 33.3\% \\
+  2.5 & 23.3\% & 89.3\% & 60.0\% \\
+  4.0 & 40.3\% & 98.0\% & 75.0\% \\
+  \hline
+\end{tabular}
+\end{table}
+
+\section{Vaccination}\label{sec:vaccine}
+Vaccinating a fraction $p$ before the outbreak starts it at $S = 1 - p$. By theorem~\ref{thm:threshold} with
+$S$ in place of 1, no outbreak grows if $\Rz(1 - p) < 1$, that is
+\begin{equation}\label{eq:pc}
+  p > p_c = 1 - \frac{1}{\Rz}.
+\end{equation}
+For $\Rz = \showparam{\R}$ this is the dashed line in figure~\ref{fig:phase}. The \href{briefing.md}{briefing}
+discusses what this means in practice \cite{anderson1991}; \cite{hethcote2000} surveys the many extensions of the model.
+
+The same mathematics of rates and thresholds appears in the \href{../oscillator/report.htex}{oscillator example}
+(damping decides whether motion dies out) and in the \href{../heat/report.htex}{heat example} (each mode decays at its own rate).
+
+\begin{thebibliography}{9}
+\bibitem{km1927} W. O. Kermack and A. G. McKendrick, A contribution to the mathematical theory of epidemics,
+  \emph{Proc. R. Soc. Lond. A} 115, 700--721 (1927), \href{https://doi.org/10.1098/rspa.1927.0118}{doi:10.1098/rspa.1927.0118}.
+\bibitem{hethcote2000} H. W. Hethcote, The mathematics of infectious diseases, \emph{SIAM Review} 42, 599--653 (2000),
+  \href{https://doi.org/10.1137/S0036144500371907}{doi:10.1137/S0036144500371907}.
+\bibitem{anderson1991} R. M. Anderson and R. M. May, \emph{Infectious Diseases of Humans: Dynamics and Control}, Oxford University Press (1991).
+\end{thebibliography}
+\end{document}

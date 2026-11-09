@@ -428,3 +428,6 @@ body { word-break: keep-all; overflow-wrap: break-word; }
 
 /* 본문 글꼴의 문맥 대체(calt)가 "2x 0"을 "2× 0"으로 바꾼다. 제품 이름 hwp2x가 깨지지 않게 끈다. */
 body { font-feature-settings: "calt" 0; }
+
+/* Examples gallery (docs/hypertex/examples.md, filled by hooks/examples.py): keep file names on one line */
+.md-typeset code.ex-file { white-space: nowrap; }

@@ -1,0 +1,71 @@
+\documentclass{hypertex}
+\title{감쇠·강제 진동자의 공명}
+\author{krunyx · HyperTeX 예제}
+\date{2026년 11월}
+\keywords{진동자, 감쇠, 공명, 품질 인자}
+\abstract{\href{report.htex}{영어 보고서}의 한국어 판이다. 용수철에 매단 물체의 운동방정식을 세우고, 주기적인 힘에 얼마나 크게 응답하는지 구한다. 수식 안의 한글은 그리스 문자처럼 한 음절이 한 기호로 읽힌다: $\text{진폭} = \frac{\text{힘}}{\text{강성}}$.}
+\usemacros{macros.htex}
+\parameter{\zeta}{0.05}{1.2}{0.2}[step=0.01]
+
+\begin{document}
+\maketitle
+
+\section{모형}\label{sec:model}
+변위를 $x$라 하면 용수철의 복원력 $-kx$, 마찰 $-c\,\dv{x}{t}$, 외력 $F_0\cos\Omega t$가 작용하고
+\begin{equation}\label{eq:motion}
+  m\ddv{x}{t} + c\dv{x}{t} + kx = F_0\cos\Omega t
+\end{equation}
+이다. 고유 진동수 $\wn = \sqrt{k/m}$와 감쇠비 $\zeta = c/(2\sqrt{mk})$ 두 수가 운동을 모두 정한다.
+움직이는 모습은 그림~\ref{fig:spring}에 있다.
+
+\begin{figure}
+\includegraphics{figures/spring.svg}
+\caption{당겼다 놓은 용수철. 주황색 선은 위치 $x(t)$이고 마찰 때문에 진폭이 줄어든다.}\label{fig:spring}
+\end{figure}
+
+\section{공명}\label{sec:resonance}
+진동수비 $r = \Omega/\wn$에서 정상 상태의 진폭은
+\begin{equation}\label{eq:amp}
+  \frac{\ampl}{F_0/k} = \frac{1}{\sqrt{(1 - r^2)^2 + (2\zeta r)^2}}
+\end{equation}
+이다. 유도는 \href{derivation.htex}{부록}(영어)에 있다.
+
+\begin{proposition}[공명 봉우리]\label{prop:peak}
+$\zeta < 1/\sqrt2$이면 진폭은 $r = \sqrt{1 - 2\zeta^2}$에서 가장 크고, 그 높이는 $1/\bigl(2\zeta\sqrt{1-\zeta^2}\bigr)$이다.
+\end{proposition}
+
+\begin{proof}[collapsed]
+$g(u) = (1-u)^2 + 4\zeta^2 u$ ($u = r^2$)를 최소로 하는 $u$를 찾으면 $g'(u) = 0$에서 $u = 1 - 2\zeta^2$이다.
+\end{proof}
+
+슬라이더로 감쇠비를 바꾸면 그림~\ref{fig:live}가 다시 그려진다. 지금 $\zeta = \showparam{\zeta}$이다.
+
+\begin{figure}
+\begin{tikzpicture}
+\begin{axis}[xlabel={$r$}, ylabel={$X k / F_0$}, xmin=0, xmax=2.5, ymin=0, ymax=8, width=10cm, height=6cm, grid=major]
+  \addplot[blue, thick, domain=0:2.5, samples=400] {1/sqrt((1-x^2)^2 + (2*\zeta*x)^2)};
+\end{axis}
+\end{tikzpicture}
+\caption{감쇠비에 따른 공명 곡선, 식~\eqref{eq:amp}.}\label{fig:live}
+\end{figure}
+
+\begin{table}
+\caption{감쇠의 세 영역.}\label{tab:regimes}
+\begin{tabular}{|l|c|l|}
+  \hline
+  영역 & 감쇠비 & 운동 \\
+  \hline
+  과소 감쇠 & $\zeta < 1$ & 진동하며 줄어든다 \\
+  임계 감쇠 & $\zeta = 1$ & 넘치지 않고 가장 빨리 돌아온다 \\
+  과다 감쇠 & $\zeta > 1$ & 진동 없이 천천히 돌아온다 \\
+  \hline
+\end{tabular}
+\end{table}
+
+\section{맺음}
+품질 인자 $Q = 1/(2\zeta)$가 클수록 봉우리는 높고 좁다 \cite{french1971}. 실험 기록은 \href{notes.md}{실험 노트}(영어)에 있다.
+
+\begin{thebibliography}{9}
+\bibitem{french1971} A. P. French, \emph{Vibrations and Waves}, W. W. Norton (1971).
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,19 @@
+\documentclass{hypertex}
+\title{Notation for the oscillator example}
+% Shared notation. report.htex and derivation.htex load these with \usemacros{macros.htex}.
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\dv}[2]{\frac{\dd #1}{\dd #2}}
+\newcommand{\ddv}[2]{\frac{\dd^2 #1}{\dd #2^2}}
+\newcommand{\wn}{\omega_0}
+\newcommand{\wdamp}{\omega_{\mathrm{d}}}
+\newcommand{\ampl}{X}
+\DeclareMathOperator{\Real}{Re}
+\begin{document}
+This file only holds notation. Open \href{report.htex}{the report} to see it in use:
+
+\begin{itemize}
+  \item $\dd$ — upright differential, $\dv{x}{t}$ and $\ddv{x}{t}$ for derivatives
+  \item $\wn = \sqrt{k/m}$ — natural frequency, $\wdamp$ — damped frequency
+  \item $\ampl$ — steady-state amplitude, $\Real$ — real part
+\end{itemize}
+\end{document}

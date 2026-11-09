@@ -1,0 +1,56 @@
+\documentclass{hypertex}
+\title{Appendix: Solving the Free Oscillator}
+\author{krunyx · HyperTeX examples}
+\date{November 2026}
+\abstract{Step-by-step solution of the undriven equation of motion used in \href{report.htex}{the main report}. The report pulls equation~\ref{eq:under} into its own text with \texttt{\textbackslash transclude}.}
+\usemacros{macros.htex}
+
+\begin{document}
+\maketitle
+
+\section{Characteristic equation}\label{sec:char}
+With no drive, equation~\ref{report.htex#eq:normal} of the report reads
+\begin{equation}\label{eq:free}
+  \ddot x + 2\zeta\wn\dot x + \wn^2 x = 0 .
+\end{equation}
+Look for solutions $x = e^{\lambda t}$:
+\begin{steps}
+  \step Substitute: $\bigl(\lambda^2 + 2\zeta\wn\lambda + \wn^2\bigr)e^{\lambda t} = 0$.
+  \step The bracket must vanish, so
+        \begin{equation}\label{eq:roots}
+          \lambda_\pm = -\zeta\wn \pm \wn\sqrt{\zeta^2 - 1}.
+        \end{equation}
+  \step The general solution is $x = C_+ e^{\lambda_+ t} + C_- e^{\lambda_- t}$, unless the roots coincide.
+\end{steps}
+
+\section{The three cases}\label{sec:cases}
+\begin{collapse}{Underdamped, $\zeta < 1$}
+The roots are complex, $\lambda_\pm = -\zeta\wn \pm i\wdamp$ with $\wdamp = \wn\sqrt{1-\zeta^2}$. Choosing
+$C_\pm = \tfrac12 A e^{\mp i\phi}$ to keep $x$ real gives
+\begin{equation}\label{eq:under}
+  x(t) = A\, e^{-\zeta\wn t}\cos\left(\wdamp t + \phi\right).
+\end{equation}
+\end{collapse}
+
+\begin{collapse}{Critically damped, $\zeta = 1$}
+The double root $\lambda = -\wn$ needs a second solution $t e^{-\wn t}$:
+\begin{equation}\label{eq:critical}
+  x(t) = (C_1 + C_2 t)\, e^{-\wn t}.
+\end{equation}
+\end{collapse}
+
+\begin{collapse}{Overdamped, $\zeta > 1$}
+Both roots are real and negative:
+\begin{equation}\label{eq:over}
+  x(t) = C_+ e^{\lambda_+ t} + C_- e^{\lambda_- t}, \qquad \lambda_- < \lambda_+ < 0 .
+\end{equation}
+\end{collapse}
+
+\section{Initial conditions}
+For a release from rest at $x(0) = x_0$, equation~\eqref{eq:under} needs
+$A\cos\phi = x_0$ and $-\zeta\wn A\cos\phi - \wdamp A\sin\phi = 0$, so
+\begin{equation}\label{eq:ic}
+  \tan\phi = -\frac{\zeta}{\sqrt{1-\zeta^2}}, \qquad A = \frac{x_0}{\cos\phi}.
+\end{equation}
+Back to the \href{report.htex#sec:free}{free-motion section of the report}.
+\end{document}

@@ -1,0 +1,115 @@
+\documentclass{hypertex}
+\title{Heat Flow in a Rod and Fourier Series}
+\author{krunyx · HyperTeX examples}
+\date{November 2026}
+\keywords{heat equation, diffusion, Fourier series, separation of variables}
+\abstract{A metal rod is hot in the middle and cold at both ends. The heat equation says how the temperature evens out, and Fourier's idea of writing any profile as a sum of sine waves solves it: each wave fades on its own, the short ones fastest. Slide time forward to watch the profile relax, or change the number of terms to see how a sum of smooth waves builds a sharp edge.}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pdd}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+\parameter{\t}{0}{0.1}{0.005}[step=0.001]
+\parameter{\N}{1}{25}{5}[step=1]
+
+\begin{document}
+\maketitle
+
+\section{The heat equation}\label{sec:equation}
+Let $u(x, t)$ be the temperature of a thin rod of length $L$ whose ends are held at zero. Heat flows from hot to
+cold at a rate proportional to the temperature gradient (Fourier's law), and energy is conserved, which together give
+\begin{equation}\label{eq:heat}
+  \pd{u}{t} = \alpha\,\pdd{u}{x}, \qquad u(0, t) = u(L, t) = 0,
+\end{equation}
+where $\alpha$ is the \emph{thermal diffusivity} of the material \cite{fourier1822}.
+Figure~\ref{fig:anim} shows the answer before we derive it: a hot block in the middle spreads into a smooth hump
+that sinks towards zero.
+
+\begin{figure}
+\includegraphics{figures/cooling.svg}
+\caption{Temperature along the rod as time passes (animation, six seconds per loop). The dashed curve is the starting profile.}\label{fig:anim}
+\end{figure}
+
+\section{Separation of variables}\label{sec:separation}
+\begin{steps}
+  \step Look for solutions of the form $u = X(x)\,T(t)$. Then \eqref{eq:heat} becomes
+        $\dfrac{T'}{\alpha T} = \dfrac{X''}{X}$, and both sides must equal one constant, $-k^2$.
+  \step $X'' = -k^2 X$ with $X(0) = X(L) = 0$ allows only $k = n\pi/L$, $n = 1, 2, \ldots$, so $X_n = \sin(n\pi x/L)$.
+  \step $T' = -\alpha k^2 T$ gives $T_n = e^{-\alpha (n\pi/L)^2 t}$.
+  \step Add up the modes:
+        \begin{equation}\label{eq:series}
+          u(x, t) = \sum_{n=1}^{\infty} b_n \sin\frac{n\pi x}{L}\; e^{-\alpha n^2\pi^2 t / L^2}.
+        \end{equation}
+\end{steps}
+
+The coefficients come from the starting profile. For a rod with $L = 1$ that is at temperature 1 between
+$x = 0.3$ and $x = 0.7$ and 0 elsewhere,
+\begin{equation}\label{eq:coeff}
+  b_n = 2\int_0^1 u(x, 0)\sin(n\pi x)\,\mathrm{d}x = \frac{2}{n\pi}\bigl(\cos 0.3n\pi - \cos 0.7n\pi\bigr).
+\end{equation}
+
+\begin{proposition}[Short waves die first]\label{prop:decay}
+Mode $n$ decays with time constant $\tau_n = L^2/(\alpha n^2\pi^2) = \tau_1/n^2$. After a time of order $\tau_1$ only the first mode is left.
+\end{proposition}
+
+\begin{proof}[collapsed]
+The factor in \eqref{eq:series} is $e^{-t/\tau_n}$ with $\tau_n$ as stated. The ratio of mode $n$ to mode 1 is
+$(b_n/b_1)\,e^{-(n^2 - 1)t/\tau_1}$, which tends to zero for every $n \ge 2$.
+\end{proof}
+
+\section{Watching it relax}\label{sec:relax}
+Figure~\ref{fig:time} sums the first 15 terms of \eqref{eq:series} with $\alpha = 1$ at the time set by the
+slider, $t = \showparam{\t}$. At $t = 0$ the sharp block appears; by $t \approx 0.05$ the curve is almost a
+single sine arch, as proposition~\ref{prop:decay} predicts.
+
+\begin{figure}
+\begin{tikzpicture}
+\begin{axis}[xlabel={position $x$}, ylabel={temperature $u$}, xmin=0, xmax=1, ymin=-0.2, ymax=1.25,
+             width=10cm, height=6cm, grid=major]
+  \addplot[orange, thick, domain=0:1, samples=300] {(2/(1*pi))*(cos(0.3*pi r)-cos(0.7*pi r))*sin(1*pi*x r)*exp(-1*pi^2*\t) + (2/(2*pi))*(cos(0.6*pi r)-cos(1.4*pi r))*sin(2*pi*x r)*exp(-4*pi^2*\t) + (2/(3*pi))*(cos(0.9*pi r)-cos(2.1*pi r))*sin(3*pi*x r)*exp(-9*pi^2*\t) + (2/(4*pi))*(cos(1.2*pi r)-cos(2.8*pi r))*sin(4*pi*x r)*exp(-16*pi^2*\t) + (2/(5*pi))*(cos(1.5*pi r)-cos(3.5*pi r))*sin(5*pi*x r)*exp(-25*pi^2*\t) + (2/(6*pi))*(cos(1.8*pi r)-cos(4.2*pi r))*sin(6*pi*x r)*exp(-36*pi^2*\t) + (2/(7*pi))*(cos(2.1*pi r)-cos(4.9*pi r))*sin(7*pi*x r)*exp(-49*pi^2*\t) + (2/(8*pi))*(cos(2.4*pi r)-cos(5.6*pi r))*sin(8*pi*x r)*exp(-64*pi^2*\t) + (2/(9*pi))*(cos(2.7*pi r)-cos(6.3*pi r))*sin(9*pi*x r)*exp(-81*pi^2*\t) + (2/(10*pi))*(cos(3.0*pi r)-cos(7.0*pi r))*sin(10*pi*x r)*exp(-100*pi^2*\t) + (2/(11*pi))*(cos(3.3*pi r)-cos(7.7*pi r))*sin(11*pi*x r)*exp(-121*pi^2*\t) + (2/(12*pi))*(cos(3.6*pi r)-cos(8.4*pi r))*sin(12*pi*x r)*exp(-144*pi^2*\t) + (2/(13*pi))*(cos(3.9*pi r)-cos(9.1*pi r))*sin(13*pi*x r)*exp(-169*pi^2*\t) + (2/(14*pi))*(cos(4.2*pi r)-cos(9.8*pi r))*sin(14*pi*x r)*exp(-196*pi^2*\t) + (2/(15*pi))*(cos(4.5*pi r)-cos(10.5*pi r))*sin(15*pi*x r)*exp(-225*pi^2*\t)};
+\end{axis}
+\end{tikzpicture}
+\caption{Temperature profile at time $t$ (slider), from 15 terms of the series.}\label{fig:time}
+\end{figure}
+
+\section{How sine waves make a corner}\label{sec:gibbs}
+At $t = 0$ the series must reproduce a profile with jumps. Figure~\ref{fig:partial} adds up the first
+$N = \showparam{\N}$ terms. More terms sharpen the edges, but an overshoot of about 9\% of the jump stays next to
+each one however many terms are used: the \emph{Gibbs phenomenon} \cite{strauss2008}.
+
+\begin{figure}
+\begin{tikzpicture}
+\begin{axis}[xlabel={position $x$}, ylabel={partial sum}, xmin=0, xmax=1, ymin=-0.25, ymax=1.3,
+             width=10cm, height=6cm, grid=major]
+  \addplot[blue, thick, domain=0:1, samples=500] {ifthenelse(\N > 0.5, (2/(1*pi))*(cos(0.3*pi r)-cos(0.7*pi r))*sin(1*pi*x r)*exp(-1*pi^2*0), 0) + ifthenelse(\N > 1.5, (2/(2*pi))*(cos(0.6*pi r)-cos(1.4*pi r))*sin(2*pi*x r)*exp(-4*pi^2*0), 0) + ifthenelse(\N > 2.5, (2/(3*pi))*(cos(0.9*pi r)-cos(2.1*pi r))*sin(3*pi*x r)*exp(-9*pi^2*0), 0) + ifthenelse(\N > 3.5, (2/(4*pi))*(cos(1.2*pi r)-cos(2.8*pi r))*sin(4*pi*x r)*exp(-16*pi^2*0), 0) + ifthenelse(\N > 4.5, (2/(5*pi))*(cos(1.5*pi r)-cos(3.5*pi r))*sin(5*pi*x r)*exp(-25*pi^2*0), 0) + ifthenelse(\N > 5.5, (2/(6*pi))*(cos(1.8*pi r)-cos(4.2*pi r))*sin(6*pi*x r)*exp(-36*pi^2*0), 0) + ifthenelse(\N > 6.5, (2/(7*pi))*(cos(2.1*pi r)-cos(4.9*pi r))*sin(7*pi*x r)*exp(-49*pi^2*0), 0) + ifthenelse(\N > 7.5, (2/(8*pi))*(cos(2.4*pi r)-cos(5.6*pi r))*sin(8*pi*x r)*exp(-64*pi^2*0), 0) + ifthenelse(\N > 8.5, (2/(9*pi))*(cos(2.7*pi r)-cos(6.3*pi r))*sin(9*pi*x r)*exp(-81*pi^2*0), 0) + ifthenelse(\N > 9.5, (2/(10*pi))*(cos(3.0*pi r)-cos(7.0*pi r))*sin(10*pi*x r)*exp(-100*pi^2*0), 0) + ifthenelse(\N > 10.5, (2/(11*pi))*(cos(3.3*pi r)-cos(7.7*pi r))*sin(11*pi*x r)*exp(-121*pi^2*0), 0) + ifthenelse(\N > 11.5, (2/(12*pi))*(cos(3.6*pi r)-cos(8.4*pi r))*sin(12*pi*x r)*exp(-144*pi^2*0), 0) + ifthenelse(\N > 12.5, (2/(13*pi))*(cos(3.9*pi r)-cos(9.1*pi r))*sin(13*pi*x r)*exp(-169*pi^2*0), 0) + ifthenelse(\N > 13.5, (2/(14*pi))*(cos(4.2*pi r)-cos(9.8*pi r))*sin(14*pi*x r)*exp(-196*pi^2*0), 0) + ifthenelse(\N > 14.5, (2/(15*pi))*(cos(4.5*pi r)-cos(10.5*pi r))*sin(15*pi*x r)*exp(-225*pi^2*0), 0) + ifthenelse(\N > 15.5, (2/(16*pi))*(cos(4.8*pi r)-cos(11.2*pi r))*sin(16*pi*x r)*exp(-256*pi^2*0), 0) + ifthenelse(\N > 16.5, (2/(17*pi))*(cos(5.1*pi r)-cos(11.9*pi r))*sin(17*pi*x r)*exp(-289*pi^2*0), 0) + ifthenelse(\N > 17.5, (2/(18*pi))*(cos(5.4*pi r)-cos(12.6*pi r))*sin(18*pi*x r)*exp(-324*pi^2*0), 0) + ifthenelse(\N > 18.5, (2/(19*pi))*(cos(5.7*pi r)-cos(13.3*pi r))*sin(19*pi*x r)*exp(-361*pi^2*0), 0) + ifthenelse(\N > 19.5, (2/(20*pi))*(cos(6.0*pi r)-cos(14.0*pi r))*sin(20*pi*x r)*exp(-400*pi^2*0), 0) + ifthenelse(\N > 20.5, (2/(21*pi))*(cos(6.3*pi r)-cos(14.7*pi r))*sin(21*pi*x r)*exp(-441*pi^2*0), 0) + ifthenelse(\N > 21.5, (2/(22*pi))*(cos(6.6*pi r)-cos(15.4*pi r))*sin(22*pi*x r)*exp(-484*pi^2*0), 0) + ifthenelse(\N > 22.5, (2/(23*pi))*(cos(6.9*pi r)-cos(16.1*pi r))*sin(23*pi*x r)*exp(-529*pi^2*0), 0) + ifthenelse(\N > 23.5, (2/(24*pi))*(cos(7.2*pi r)-cos(16.8*pi r))*sin(24*pi*x r)*exp(-576*pi^2*0), 0) + ifthenelse(\N > 24.5, (2/(25*pi))*(cos(7.5*pi r)-cos(17.5*pi r))*sin(25*pi*x r)*exp(-625*pi^2*0), 0)};
+  \addplot[gray, dashed] coordinates {(0,0) (0.3,0) (0.3,1) (0.7,1) (0.7,0) (1,0)};
+\end{axis}
+\end{tikzpicture}
+\caption{Partial sums of the Fourier sine series of the starting profile. The dashed line is the profile itself.}\label{fig:partial}
+\end{figure}
+
+\section{Real materials}\label{sec:materials}
+The first time constant $\tau_1 = L^2/(\alpha\pi^2)$ tells how long a rod takes to cool. Table~\ref{tab:materials}
+uses room-temperature diffusivities \cite{wiki-diffusivity} for a rod of length $L = 0.5$ m.
+
+\begin{table}
+\caption{Slowest cooling time $\tau_1$ for a 0.5 m rod.}\label{tab:materials}
+\begin{tabular}{|l|r|r|}
+  \hline
+  Material & $\alpha$ (m$^2$/s) & $\tau_1$ \\
+  \hline
+  Copper & $1.11\times10^{-4}$ & 3.8 min \\
+  Aluminium & $9.7\times10^{-5}$ & 4.4 min \\
+  Stainless steel & $4.2\times10^{-6}$ & 1.7 h \\
+  Window glass & $3.4\times10^{-7}$ & 21 h \\
+  \hline
+\end{tabular}
+\end{table}
+
+Each Fourier mode behaves like an overdamped oscillator that only decays; compare the three regimes in the
+\href{../oscillator/report.htex#tab:regimes}{oscillator example}. Diffusion with a source term is also the
+continuum version of the spreading in the \href{../sir/report.htex}{SIR example}.
+
+\begin{thebibliography}{9}
+\bibitem{fourier1822} J. Fourier, \emph{Théorie analytique de la chaleur}, Firmin Didot, Paris (1822).
+\bibitem{strauss2008} W. A. Strauss, \emph{Partial Differential Equations: An Introduction}, 2nd ed., Wiley (2008), chapter 5.
+\bibitem{wiki-diffusivity} Wikipedia, \href{https://en.wikipedia.org/wiki/Thermal_diffusivity}{Thermal diffusivity}, table of values.
+\end{thebibliography}
+\end{document}

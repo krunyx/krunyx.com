@@ -1,0 +1,10 @@
+title: "Heat flow in a rod and Fourier series"
+order: 30
+summary: >-
+  The heat equation solved by separation of variables. One slider moves time forward and the
+  temperature profile relaxes; another adds Fourier terms and shows the Gibbs overshoot. An animated
+  figure shows the rod cooling.
+main: report.htex
+files:
+  - path: report.htex
+    about: Heat equation, separation of variables in steps, two sliders, animated SVG, materials table.

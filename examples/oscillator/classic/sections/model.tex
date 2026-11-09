@@ -1,0 +1,12 @@
+\section{Model}\label{sec:model}
+A mass $m$ attached to a spring of stiffness $k$ and a damper with coefficient $c$, driven by
+$F_0\cos\Omega t$, obeys
+\begin{equation}\label{eq:motion}
+  m\ddot x + c\dot x + kx = F_0\cos\Omega t .
+\end{equation}
+With $\wn = \sqrt{k/m}$ and $\zeta = c/(2\sqrt{mk})$ this becomes
+\begin{equation}\label{eq:normal}
+  \ddot x + 2\zeta\wn\dot x + \wn^2 x = \frac{F_0}{m}\cos\Omega t .
+\end{equation}
+For $\zeta<1$ the free solution decays as $e^{-\zeta\wn t}$ while oscillating at
+$\omega_\mathrm{d} = \wn\sqrt{1-\zeta^2}$.

@@ -44,6 +44,7 @@ nav:
       - Overview: hypertex/index.md
       - Download: hypertex/download.md
       - Get started: hypertex/getting-started.md
+      - Examples: hypertex/examples.md
       - Cite: hypertex/cite.md
       - Changelog: hypertex/changelog.md
   - hangulmath:
@@ -55,6 +56,9 @@ nav:
   - Roadmap: roadmap.md
   - Security: security.md
   - Company: about.md
+
+hooks:
+  - hooks/examples.py
 
 markdown_extensions:
   - admonition

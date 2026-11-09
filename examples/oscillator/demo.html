@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Driven oscillator: live demo</title>
+<style>
+  :root { --ink: #1f2937; --muted: #6b7280; --line: #e5e7eb; --bg: #fbfbf9; --card: #ffffff;
+          --blue: #2563eb; --orange: #ea580c; --green: #16a34a; }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink: #e5e7eb; --muted: #9ca3af; --line: #374151; --bg: #111827; --card: #1f2937; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 860px; margin: 0 auto; padding: 32px 16px 48px; }
+  h1 { font-size: 1.7rem; margin: 0 0 4px; }
+  p.lead { color: var(--muted); margin: 0 0 24px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px; }
+  canvas { width: 100%; height: auto; display: block; }
+  .controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px 24px;
+              margin-top: 14px; }
+  label { display: block; font-size: 0.9rem; color: var(--muted); }
+  label b { color: var(--ink); font-variant-numeric: tabular-nums; }
+  input[type=range] { width: 100%; accent-color: var(--blue); }
+  .readout { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 12px; font-size: 0.95rem; }
+  .readout span b { font-variant-numeric: tabular-nums; }
+  nav { margin-top: 28px; display: flex; gap: 18px; flex-wrap: wrap; }
+  a { color: var(--blue); }
+  button { font: inherit; padding: 4px 14px; border-radius: 6px; border: 1px solid var(--line);
+           background: var(--card); color: var(--ink); cursor: pointer; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Driven oscillator, live</h1>
+  <p class="lead">A plain HTML page with a little JavaScript: the mass obeys
+    <code>x″ + 2ζω₀x′ + ω₀²x = (F₀/m) cos Ωt</code>, integrated step by step in your browser.
+    Change the damping and the drive frequency and watch the swing build up or die away.</p>
+
+  <div class="card">
+    <canvas id="c" width="1600" height="640" aria-label="Animated mass on a spring and its position over time"></canvas>
+    <div class="controls">
+      <label>Damping ratio ζ = <b id="zv"></b>
+        <input id="z" type="range" min="0.02" max="1" step="0.01" value="0.08"></label>
+      <label>Drive frequency Ω/ω₀ = <b id="rv"></b>
+        <input id="r" type="range" min="0" max="2" step="0.01" value="1"></label>
+    </div>
+    <div class="readout">
+      <span>Predicted steady amplitude <b id="pred"></b> × F₀/k</span>
+      <span>Quality factor Q = <b id="q"></b></span>
+      <button id="reset" type="button">Restart from rest</button>
+    </div>
+  </div>
+
+  <nav>
+    <a class="doc" href="report.htex">Read the report</a>
+    <a class="doc" href="notes.md">Lab notes</a>
+    <a class="doc" href="derivation.htex">Appendix</a>
+  </nav>
+</main>
+<script>
+(function () {
+  // On the plain-web copy of the site (…/examples/web/…), documents are .html pages.
+  if (/\/examples\/web\//.test(location.pathname)) {
+    document.querySelectorAll("a.doc").forEach(function (a) {
+      a.setAttribute("href", a.getAttribute("href").replace(/\.(htex|md)$/, ".html"));
+    });
+  }
+
+  var c = document.getElementById("c"), g = c.getContext("2d");
+  var zIn = document.getElementById("z"), rIn = document.getElementById("r");
+  var W0 = 2 * Math.PI * 0.8;            // natural frequency (rad/s), slow enough to watch
+  var x = 0, v = 0, t = 0, trail = [];
+  var css = function (name) { return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); };
+
+  function amplitude(z, r) { return 1 / Math.sqrt(Math.pow(1 - r * r, 2) + Math.pow(2 * z * r, 2)); }
+  function update() {
+    var z = +zIn.value, r = +rIn.value;
+    document.getElementById("zv").textContent = z.toFixed(2);
+    document.getElementById("rv").textContent = r.toFixed(2);
+    document.getElementById("pred").textContent = amplitude(z, r).toFixed(2);
+    document.getElementById("q").textContent = (1 / (2 * z)).toFixed(1);
+  }
+  function restart() { x = 0; v = 0; t = 0; trail = []; }
+  zIn.oninput = rIn.oninput = update;
+  document.getElementById("reset").onclick = restart;
+
+  function step(dt) {                      // semi-implicit Euler, small steps
+    var z = +zIn.value, w = +rIn.value * W0;
+    for (var k = 0; k < 8; k++) {
+      var h = dt / 8;
+      var a = -2 * z * W0 * v - W0 * W0 * x + W0 * W0 * Math.cos(w * t);   // F0/m = ω0² (static deflection 1)
+      v += a * h; x += v * h; t += h;
+    }
+    trail.push(x);
+    if (trail.length > 600) trail.shift();
+  }
+
+  function draw() {
+    var ink = css("--ink"), muted = css("--muted"), blue = css("--blue"), orange = css("--orange");
+    var w = c.width, h = c.height, mid = h / 2, scale = Math.min(26, 200 / Math.max(1, amplitude(+zIn.value, +rIn.value)));
+    g.clearRect(0, 0, w, h);
+    // ceiling, spring and mass
+    var cx = 220, top = 40, y = mid + 40 + x * scale;
+    g.fillStyle = muted; g.fillRect(cx - 90, top - 20, 180, 20);
+    g.strokeStyle = ink; g.lineWidth = 4; g.beginPath(); g.moveTo(cx, top);
+    var n = 16, len = y - 70 - top;
+    for (var i = 1; i < n; i++) g.lineTo(cx + (i % 2 ? 34 : -34), top + 16 + len * i / n);
+    g.lineTo(cx, y - 70); g.stroke();
+    g.fillStyle = blue; g.fillRect(cx - 70, y - 70, 140, 120);
+    g.fillStyle = "#fff"; g.font = "bold 44px system-ui, sans-serif"; g.textAlign = "center"; g.fillText("m", cx, y + 6);
+    // trace of x(t)
+    var x0 = 480, x1 = w - 30;
+    g.strokeStyle = muted; g.lineWidth = 2; g.setLineDash([8, 8]);
+    g.beginPath(); g.moveTo(x0, mid + 40); g.lineTo(x1, mid + 40); g.stroke(); g.setLineDash([]);
+    g.strokeStyle = orange; g.lineWidth = 4; g.beginPath();
+    for (var k = 0; k < trail.length; k++) {
+      var px = x1 - (trail.length - 1 - k) * (x1 - x0) / 600, py = mid + 40 + trail[k] * scale;
+      k ? g.lineTo(px, py) : g.moveTo(px, py);
+    }
+    g.stroke();
+    g.fillStyle = muted; g.font = "28px system-ui, sans-serif"; g.textAlign = "left";
+    g.fillText("x(t)", x0, 40);
+  }
+
+  var last = null;
+  function frame(ts) {
+    if (last !== null) step(Math.min(0.05, (ts - last) / 1000));
+    last = ts; draw(); requestAnimationFrame(frame);
+  }
+  update(); requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

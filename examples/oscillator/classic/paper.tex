@@ -1,0 +1,35 @@
+% The same study written as an ordinary LaTeX manuscript, the way it would be sent to a journal.
+% It compiles with pdflatex + bibtex, and HyperTeX opens it as is (compatibility mode):
+% \input files, the PDF figure, \cref and the BibTeX bibliography (paper.bbl) all work.
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\wn}{\omega_0}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newtheorem{proposition}{Proposition}
+
+\title{Resonance in a Damped, Driven Oscillator}
+\author{krunyx \and HyperTeX examples}
+\date{November 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We derive the steady response of a linear oscillator with viscous damping to a harmonic force and
+compare the predicted resonance curve with a simulated air-track experiment. This manuscript is the
+LaTeX twin of the HyperTeX report
+\href{https://krunyx.com/examples/oscillator/report.htex}{report.htex}, which adds live sliders.
+\end{abstract}
+
+\input{sections/intro}
+\input{sections/model}
+\input{sections/resonance}
+
+\bibliographystyle{plain}
+\bibliography{refs}
+\end{document}

@@ -26,12 +26,41 @@ mkdocs serve
 
 새 페이지는 `docs/` 안에 `.md` 파일을 만들고 `mkdocs.yml`의 `nav`에 한 줄 추가하면 됩니다.
 
+## HyperTeX 예제 (`examples/`)
+
+`examples/` 의 파일은 사이트를 만들 때 **그대로** `https://krunyx.com/examples/` 에 올라간다 (`.md` 도 MkDocs 가 바꾸지 않는다).
+그래서 HyperTeX 에서 `htex://krunyx.com/examples/oscillator/report.htex` 처럼 바로 열린다.
+이 일은 `hooks/examples.py` 가 한다.
+
+- 원본 파일 복사 → `site/examples/<예제>/`
+- 모든 예제 목록 `site/examples/index.htex` 를 만든다 (HyperTeX 용)
+- `htex build` 로 일반 브라우저용 사본 → `site/examples/web/` (`requirements.txt` 의 htex 패키지)
+- 안내 페이지 `docs/hypertex/examples.md` 의 `<!-- examples:gallery -->` 자리에 예제 목록을 채운다
+
+**예제 추가하기**: `examples/<새 이름>/` 폴더를 만들고 파일과 `example.yml` 을 넣으면 끝이다. 다른 곳은 고치지 않는다.
+
+```yaml
+title: "예제 제목"
+order: 40                 # 작을수록 앞
+summary: >-
+  한두 문장 소개.
+main: report.htex         # "Open in HyperTeX" 단추가 여는 파일
+files:                    # 목록에 보일 파일 (없는 파일을 적으면 빌드가 멈춘다)
+  - path: report.htex
+    about: 이 파일이 보여 주는 것.
+```
+
+주의: 예제 안의 `\input`·`\usemacros`·그림은 같은 폴더나 그 아래만 가리킨다 (`../` 는 원격에서 막힌다).
+다른 예제로 가는 `\href{../sir/report.htex}{…}` 링크는 괜찮다.
+그림과 데이터는 `python tools/example_figures.py` 로 다시 만든다 (numpy·matplotlib 필요).
+
 ## 새 HyperTeX 버전을 냈을 때
 
 1. `mkdocs.yml`의 `extra.hypertex.version` 값을 바꿉니다 (첫 화면에 표시).
 2. `docs/hypertex/download.md` 맨 위의 버전을 바꿉니다.
 3. `docs/hypertex/changelog.md` 맨 위에 항목을 추가합니다.
 4. `docs/hypertex/cite.md`의 `version`을 바꿉니다.
+5. 예제 빌드에 쓰는 버전: `requirements.txt` 의 `htex @ …/v<버전>.tar.gz` 를 바꿉니다.
 
 ## 배포 (Cloudflare Workers)
 

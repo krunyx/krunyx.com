@@ -1,0 +1,164 @@
+\documentclass{hypertex}
+\title{Resonance in a Damped, Driven Oscillator}
+\author{krunyx · HyperTeX examples}
+\date{November 2026}
+\keywords{oscillator, damping, resonance, quality factor}
+\abstract{A mass on a spring is the simplest system that resonates. We write down its equation of motion, sort its free motion into three regimes, and derive how strongly it answers a periodic push. Move the sliders to change the damping and watch the curves redraw. The detailed derivation lives in a \href{derivation.htex}{separate appendix}, the measurements in \href{notes.md}{lab notes}, and an animation in a \href{demo.html}{small web page}.}
+\usemacros{macros.htex}
+\parameter{\zeta}{0.05}{1.2}{0.2}[step=0.01]
+
+\begin{document}
+\maketitle
+
+\section{Introduction}\label{sec:intro}
+Bridges sway in the wind, a radio picks out one station, and atoms absorb light of one colour. Each of these is a
+\emph{resonance}: a system with a natural frequency answers very strongly when it is pushed at that frequency.
+The mass on a spring in figure~\ref{fig:spring} shows all of it with a single equation.
+
+This report is one of a set of linked files. The same paper written as an ordinary LaTeX manuscript is in
+\href{classic/paper.tex}{classic/paper.tex} (compiled by pdflatex: \href{classic/paper.pdf}{paper.pdf}), a Korean edition is in \href{report.ko.htex}{report.ko.htex},
+and the shared notation comes from \href{macros.htex}{macros.htex}.
+
+\begin{figure}
+\includegraphics{figures/spring.svg}
+\caption{A mass $m$ on a spring of stiffness $k$, pulled down and released. The orange trace is its position
+$x(t)$; friction makes each swing smaller than the last.}\label{fig:spring}
+\end{figure}
+
+\section{The model}\label{sec:model}
+Let $x$ be the displacement from equilibrium. The spring pulls back with force $-kx$, friction resists with
+$-c\,\dv{x}{t}$, and an external force $F_0\cos\Omega t$ drives the mass. Newton's second law gives
+\begin{equation}\label{eq:motion}
+  m\ddv{x}{t} + c\dv{x}{t} + kx = F_0\cos\Omega t .
+\end{equation}
+Dividing by $m$ leaves two numbers that describe the oscillator completely:
+\begin{equation}\label{eq:params}
+  \wn = \sqrt{\frac{k}{m}}, \qquad \zeta = \frac{c}{2\sqrt{mk}},
+\end{equation}
+the \emph{natural frequency} and the \emph{damping ratio}, so that \eqref{eq:motion} becomes
+\begin{equation}\label{eq:normal}
+  \ddot x + 2\zeta\wn\dot x + \wn^2 x = \frac{F_0}{m}\cos\Omega t .
+\end{equation}
+
+\section{Free motion}\label{sec:free}
+Without the drive ($F_0 = 0$) the solutions are $e^{\lambda t}$ with $\lambda^2 + 2\zeta\wn\lambda + \wn^2 = 0$.
+The sign of $\zeta^2 - 1$ decides what happens (table~\ref{tab:regimes}).
+
+\begin{table}
+\caption{The three regimes of free motion.}\label{tab:regimes}
+\begin{tabular}{|l|c|l|}
+  \hline
+  Regime & Damping ratio & Motion \\
+  \hline
+  Underdamped & $\zeta < 1$ & oscillates while the amplitude decays \\
+  Critically damped & $\zeta = 1$ & returns fastest without overshooting \\
+  Overdamped & $\zeta > 1$ & creeps back without oscillating \\
+  \hline
+\end{tabular}
+\end{table}
+
+In the underdamped case, which matters most for resonance, the motion is (appendix, equation~\ref{derivation.htex#eq:under})
+\transclude{derivation.htex#eq:under}
+with the damped frequency $\wdamp = \wn\sqrt{1 - \zeta^2}$.
+Figure~\ref{fig:free} draws this solution for the current damping ratio $\zeta = \showparam{\zeta}$.
+
+\begin{figure}
+\begin{tikzpicture}[scale=1.25]
+  \draw[->] (0,0) -- (8.6,0) node[right] {$\wn t$};
+  \draw[->] (0,-1.3) -- (0,1.4) node[above] {$x / A$};
+  \draw[gray, dashed] plot[domain=0:8.4, samples=120] (\x, {exp(-\zeta*\x)});
+  \draw[gray, dashed] plot[domain=0:8.4, samples=120] (\x, {-exp(-\zeta*\x)});
+  \draw[thick, blue] plot[domain=0:8.4, samples=300]
+       (\x, {exp(-\zeta*\x)*cos(sqrt(max(1-\zeta*\zeta, 0.0001))*\x r)});
+\end{tikzpicture}
+\caption{Free motion for the damping ratio set by the slider. The dashed lines are the envelope
+$\pm e^{-\zeta\wn t}$.}\label{fig:free}
+\end{figure}
+
+\begin{theorem}[Energy only decreases]\label{thm:energy}
+For free motion the energy $E = \tfrac12 m\dot x^2 + \tfrac12 kx^2$ satisfies $\dv{E}{t} = -c\,\dot x^2 \le 0$.
+\end{theorem}
+
+\begin{proof}[collapsed]
+Differentiate and use \eqref{eq:motion} with $F_0 = 0$:
+$\dv{E}{t} = \dot x\,(m\ddot x + kx) = \dot x\,(-c\dot x) = -c\,\dot x^2$.
+\end{proof}
+
+\section{Forced motion and resonance}\label{sec:resonance}
+After the free motion has died away, the mass follows the drive: $x(t) = \ampl\cos(\Omega t - \varphi)$.
+Writing $r = \Omega/\wn$ for the frequency ratio, the amplitude and phase are
+\begin{steps}
+  \step Try $x = \Real\bigl(\hat x\, e^{i\Omega t}\bigr)$ in \eqref{eq:normal}:
+        $\bigl(\wn^2 - \Omega^2 + 2i\zeta\wn\Omega\bigr)\hat x = F_0/m$.
+  \step Divide by $\wn^2$: $\hat x = \dfrac{F_0/k}{1 - r^2 + 2i\zeta r}$.
+  \step Take the modulus and the argument:
+        \begin{equation}\label{eq:amp}
+          \frac{\ampl}{F_0/k} = \frac{1}{\sqrt{(1 - r^2)^2 + (2\zeta r)^2}}, \qquad
+          \tan\varphi = \frac{2\zeta r}{1 - r^2}.
+        \end{equation}
+\end{steps}
+
+\begin{proposition}[Resonance peak]\label{prop:peak}
+If $\zeta < 1/\sqrt2$, the amplitude \eqref{eq:amp} is largest at $r = \sqrt{1 - 2\zeta^2}$, where
+\begin{equation}\label{eq:peak}
+  \frac{\ampl_{\max}}{F_0/k} = \frac{1}{2\zeta\sqrt{1 - \zeta^2}} \approx \frac{1}{2\zeta} = Q .
+\end{equation}
+\end{proposition}
+
+\begin{proof}[collapsed]
+The amplitude is largest where $g(r^2) = (1 - r^2)^2 + 4\zeta^2 r^2$ is smallest. Setting
+$g'(u) = -2(1 - u) + 4\zeta^2 = 0$ gives $u = 1 - 2\zeta^2$, which is positive only if $\zeta < 1/\sqrt2$.
+Substituting back gives $g = 4\zeta^2(1 - \zeta^2)$.
+\end{proof}
+
+The number $Q = 1/(2\zeta)$ is the \emph{quality factor}: a lightly damped oscillator has a tall, narrow peak.
+Drag the slider and watch figure~\ref{fig:live}: at $\zeta = \showparam{\zeta}$ the peak sits near $r = 1$ and
+grows as $\zeta$ shrinks. Figure~\ref{fig:family} compares four damping ratios at once.
+
+\begin{figure}
+\begin{tikzpicture}
+\begin{axis}[xlabel={$r = \Omega/\omega_0$}, ylabel={$X k / F_0$}, xmin=0, xmax=2.5, ymin=0, ymax=8,
+             width=10cm, height=6cm, grid=major]
+  \addplot[blue, thick, domain=0:2.5, samples=400] {1/sqrt((1-x^2)^2 + (2*\zeta*x)^2)};
+  \addplot[gray, dashed, domain=0:2.5, samples=2] {1};
+\end{axis}
+\end{tikzpicture}
+\caption{Amplitude of the steady motion, equation~\eqref{eq:amp}, for the damping ratio set by the slider.}\label{fig:live}
+\end{figure}
+
+\begin{figure}
+\includegraphics{figures/resonance.png}
+\caption{Resonance curves for four damping ratios.}\label{fig:family}
+\end{figure}
+
+\section{Measurement}\label{sec:measure}
+A cart on an air track with two springs was driven by a motor at several frequencies (the numbers in this example are simulated for illustration). Table~\ref{tab:fit} gives
+the values fitted from the data in the \href{notes.md}{lab notes}; the peak height agrees with \eqref{eq:peak} to
+within the measurement error.
+
+\begin{table}
+\caption{Fitted parameters of the air-track oscillator.}\label{tab:fit}
+\begin{tabular}{|l|r|r|}
+  \hline
+  Quantity & Value & Uncertainty \\
+  \hline
+  Natural frequency $\wn / 2\pi$ & 1.62 Hz & 0.01 Hz \\
+  Damping ratio $\zeta$ & 0.061 & 0.004 \\
+  Quality factor $Q$ & 8.2 & 0.5 \\
+  Peak amplitude $\ampl_{\max} k / F_0$ & 8.0 & 0.6 \\
+  \hline
+\end{tabular}
+\end{table}
+
+\section{Conclusion}
+Two numbers, $\wn$ and $\zeta$, fix everything: where the peak is, how tall it is (proposition~\ref{prop:peak}),
+and how fast free motion dies out. The textbook treatments in \cite{french1971} and \cite{taylor2005} cover the
+same ground at more length; \cite{landau1976} treats resonance in systems with many degrees of freedom.
+
+\begin{thebibliography}{9}
+\bibitem{french1971} A. P. French, \emph{Vibrations and Waves}, W. W. Norton (1971), chapters 3 and 4.
+\bibitem{taylor2005} J. R. Taylor, \emph{Classical Mechanics}, University Science Books (2005), chapter 5.
+\bibitem{landau1976} L. D. Landau and E. M. Lifshitz, \emph{Mechanics}, 3rd ed., Pergamon (1976), §26.
+\bibitem{wiki-q} Wikipedia, \href{https://en.wikipedia.org/wiki/Q_factor}{Q factor}.
+\end{thebibliography}
+\end{document}

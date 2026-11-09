@@ -1,0 +1,13 @@
+title: "How an epidemic peaks: the SIR model"
+order: 20
+summary: >-
+  The classic model of an outbreak. A slider for the reproduction number redraws the epidemic's path,
+  a plot is drawn from a data table, and a short policy briefing in Markdown links back to the equations.
+main: report.htex
+files:
+  - path: report.htex
+    about: Model, threshold theorem, peak and final-size formulas, vaccination target, DOI references.
+  - path: briefing.md
+    about: A one-page policy briefing in Markdown that cites the report's equations.
+  - path: data/sir.csv
+    about: Numerical solution used for the first figure.

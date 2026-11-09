@@ -1,0 +1,23 @@
+# Gallery entry for this example (read by hooks/examples.py). See the README for the fields.
+title: "Resonance in a damped, driven oscillator"
+order: 10
+summary: >-
+  A short physics report on a mass on a spring: numbered equations, a theorem with a collapsible proof,
+  a step-by-step derivation, tables, an animated figure, live sliders that redraw the plots, and references.
+  The same study also appears as an ordinary LaTeX manuscript, Markdown lab notes, an HTML demo and a Korean edition.
+main: report.htex
+files:
+  - path: report.htex
+    about: The main report. Sliders, animated SVG, TikZ and pgfplots figures, theorem, steps, bibliography.
+  - path: derivation.htex
+    about: Appendix with the full derivation. The report links to its equations and transcludes one of them.
+  - path: notes.md
+    about: Lab notes in Markdown with a data table, task list, footnote and links to equations in the report.
+  - path: demo.html
+    about: An ordinary HTML page with a JavaScript animation of the driven oscillator.
+  - path: classic/paper.tex
+    about: The same paper as a journal-style LaTeX manuscript with \input files, a PDF figure, cleveref and a BibTeX .bbl.
+  - path: report.ko.htex
+    about: Korean edition, showing Hangul in math and Korean document labels.
+  - path: macros.htex
+    about: Shared notation loaded by the report and the appendix with \usemacros.
