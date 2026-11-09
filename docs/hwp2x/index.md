@@ -12,9 +12,9 @@ Java is bundled, so there is nothing else to install.
 
 - **HWPX by default**, a faithful copy of the original. Word, Markdown, HTML, LaTeX and HyperTeX are there when you want a first draft in another format.
 - **Long documents work.** Documents of hundreds or thousands of pages convert without running out of memory.
-- **Drag and drop app** for everyday use, plus a **command line** and a **Python library** for batch jobs.
+- **Drag and drop app** for everyday use, plus a **command line** for batch jobs.
 - **Tested against 93 sample documents**, comparing the converted text with the original character by character.
-- **Free and open source** under Apache-2.0. [Source on GitHub](https://github.com/krunyx/hwp2x).
+- **Free** for personal, public-sector and commercial use, under the [Apache License 2.0](#license).
 
 !!! info "The app is in Korean"
     hwp2x is made for Korean documents, so its window and messages are in Korean.
@@ -23,7 +23,6 @@ Java is bundled, so there is nothing else to install.
 ## Download { #download }
 
 The latest version is **v0.2.3** (November 2026). It is the version we recommend for everyone, whether you only need HWPX or want another format.
-[Release page](https://github.com/krunyx/hwp2x/releases/tag/v0.2.3)
 
 | System | Download | Size |
 | --- | --- | --- |
@@ -96,7 +95,7 @@ To update from an older version, install the new one in its place.
 
 !!! note "About the security warnings"
     hwp2x is not yet code-signed by Apple or Microsoft, so your system warns on first launch.
-    The downloads are built by GitHub Actions directly from the [public source code](https://github.com/krunyx/hwp2x/blob/main/.github/workflows/build.yml).
+    The downloads are built and packaged automatically, not by hand, and are the same files for everyone.
 
 ## How to use { #use }
 
@@ -140,7 +139,7 @@ Double-click a row to open its result.
 | ✘ 실패 | Not converted. The reason is shown next to it, such as a [distribution document](#limits). |
 
 The line at the very bottom shows the version, for example **hwp2x 0.2.3 · © 2026 krunyx**.
-Click it to open **프로그램 정보** (About). It shows the [terms of use](#license) and links to this site, the source code and **최신 버전 확인** (Check for the latest version).
+Click it to open **프로그램 정보** (About). It shows the [terms of use](#license) and links to this site and **최신 버전 확인** (Check for the latest version).
 
 <figure class="kx-shot kx-shot--small" markdown>
 [![The hwp2x About window: krunyx logo, hwp2x version 0.2.3, a one-line description, copyright and license, links, the terms of use (license, no warranty, limitation of liability, checking results, trademarks) and the open-source components it uses](../assets/images/hwp2x/app-about.png){ width="420" loading="lazy" }](../assets/images/hwp2x/app-about.png)
@@ -176,19 +175,6 @@ hwp2x ./문서 -r -t tex -f              # a whole folder to LaTeX, overwriting 
 | `-V` | Show the version |
 
 Exit codes: `0` all succeeded, `1` some failed, `2` no files to convert, `3` the converter could not start.
-
-### The Python library
-
-```python
-from hwp2x import convert, convert_all, plan
-
-convert("보고서.hwp")                       # 보고서.hwpx
-convert("보고서.hwp", "보고서.docx")        # the format follows the extension
-results = convert_all(plan(["./문서"], "./변환결과", recursive=True, fmt="md"), overwrite=True)
-```
-
-The library is installed from source and needs Java 17 or later.
-See the [README](https://github.com/krunyx/hwp2x#빌드) for the build steps.
 
 ## Output formats { #formats }
 
@@ -242,7 +228,6 @@ If a document does not convert, looks wrong after converting, or you have an ide
 Reports on the Word, Markdown, HTML and LaTeX output are especially welcome: they show us what to improve first.
 
 [Email hello@krunyx.com](mailto:hello@krunyx.com?subject=%5Bhwp2x%5D%20){ .md-button .md-button--primary }
-[Open a GitHub issue](https://github.com/krunyx/hwp2x/issues/new){ .md-button }
 
 Writing in Korean is fine. It helps if you include:
 
@@ -256,8 +241,8 @@ otherwise a description, or a copy with the text replaced, is enough.
 
 ## License and disclaimer { #license }
 
-**License.** hwp2x is free and open-source software, released under the
-[Apache License 2.0](https://github.com/krunyx/hwp2x/blob/main/LICENSE).
+**License.** hwp2x is free software, released under the
+[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 You may use, copy, modify and redistribute it for personal, public-sector or commercial purposes, under the terms of that license.
 
 **No warranty.** hwp2x is provided "AS IS", without warranties or conditions of any kind, express or implied,
@@ -275,7 +260,7 @@ Before you rely on a converted document, especially an official, legal or financ
 **Third-party components.** The conversion engine is built from neolord0's [hwplib](https://github.com/neolord0/hwplib),
 [hwpxlib](https://github.com/neolord0/hwpxlib) and [hwp2hwpx](https://github.com/neolord0/hwp2hwpx), all Apache-2.0.
 The downloads also include OpenJDK (GPLv2 with the Classpath Exception), Qt for Python (LGPLv3) and Pillow (HPND), each under its own license.
-Full notices are in the [NOTICE](https://github.com/krunyx/hwp2x/blob/main/NOTICE) file.
+The full notice is below; the Windows and Linux downloads also include it as the `NOTICE` file, next to `LICENSE`.
 
 **Trademarks.** "한글", "HWP" and "HWPX" are trademarks of Hancom Inc.
 hwp2x is an independent project and is not affiliated with or endorsed by Hancom.
@@ -284,3 +269,25 @@ hwp2x is an independent project and is not affiliated with or endorsed by Hancom
 <br><small>(This product was developed with reference to Hancom's published HWP document file format specification.)</small>
 
 The same terms appear in the app's **프로그램 정보** (About) window from v0.2.3, and `hwp2x --license` prints them on the command line.
+
+??? note "NOTICE"
+    ```text
+    hwp2x
+    Copyright 2026 krunyx
+
+    This product includes software developed by neolord0
+    (hwplib, hwpxlib, hwp2hwpx; https://github.com/neolord0), licensed under the
+    Apache License 2.0.
+
+    Binary distributions also include OpenJDK (GPLv2 with the Classpath
+    Exception), Qt for Python / PySide6 (LGPLv3) and Pillow (HPND).
+
+    hwp2x is provided "AS IS", without warranties or conditions of any kind, and
+    krunyx and the contributors are not liable for any damages arising from its
+    use (Apache License 2.0, Sections 7 and 8). See https://krunyx.com/hwp2x/#license
+
+    "한글", "HWP" and "HWPX" are trademarks of Hancom Inc. hwp2x is an independent
+    project and is not affiliated with or endorsed by Hancom.
+
+    “본 제품은 한글과컴퓨터의 HWP 문서 파일(.hwp) 공개 문서를 참고하여 개발하였습니다.”
+    ```
