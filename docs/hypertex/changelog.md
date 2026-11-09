@@ -2,6 +2,19 @@
 
 Each new version is added at the top.
 
+## v0.7.1 { #v0-7-1 }
+
+November 2026. Fixes found while writing the new [examples](examples.md).
+
+- **Theorem names in English documents**: theorems, lemmas, propositions, corollaries, definitions, examples and
+  remarks are labelled in English in English documents (they showed the Korean names before)
+- **BibTeX bibliographies**: `\newblock` in `.bbl` files no longer shows an error, and like LaTeX, HyperTeX looks
+  first for the `.bbl` named after the document (`paper.tex` → `paper.bbl`)
+- **Tables**: short numbers such as `1.5` are no longer split across lines in narrow columns
+- **pgfplots**: a formula that starts with a bracket, such as `\addplot {(2/pi)*sin(x)}`, now draws
+- **Examples**: three sets of linked documents (oscillator, SIR epidemic model, heat diffusion) on the new
+  [Examples](examples.md) page
+
 ## v0.7.0 { #v0-7-0 }
 
 November 2026. Edit documents right in the viewer, with a live preview beside the source.

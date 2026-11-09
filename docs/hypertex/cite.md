@@ -6,7 +6,7 @@ If you used HyperTeX in your research, please cite it as follows.
 @software{hypertex,
   author  = {{krunyx}},
   title   = {HyperTeX: a TeX-based hypertext format and browser},
-  version = {0.7.0},
+  version = {0.7.1},
   year    = {2026},
   url     = {https://krunyx.com/hypertex/}
 }

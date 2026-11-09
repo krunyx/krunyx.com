@@ -9,6 +9,7 @@ Scientists already think and write in LaTeX. HyperTeX aims to let those document
 
 [Download](download.md){ .md-button .md-button--primary }
 [Get started](getting-started.md){ .md-button }
+[Examples](examples.md){ .md-button }
 
 ## What it does
 
