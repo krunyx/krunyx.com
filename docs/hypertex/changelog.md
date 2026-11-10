@@ -2,6 +2,40 @@
 
 Each new version is added at the top.
 
+## v0.8.2 { #v0-8-2 }
+
+November 2026. Copy equations as LaTeX, browsing history, and a notice when a new version is out.
+
+- **Copy equations as LaTeX**: right-click an equation and choose **Copy equation as LaTeX** to copy its source.
+  Select text that contains equations and copy it, and the equations come out as `$…$` and `$$…$$` instead of
+  jumbled symbols. This also works in sites built with `htex build`
+- **History**: Ctrl+H (Cmd+Y on macOS) opens your browsing history, grouped by day. Search it, remove single
+  entries, or clear everything
+- **Update notice**: once a day HyperTeX checks whether a newer version has been released. If there is one, an
+  **Update** button appears next to the ⋮ menu and opens the [download page](download.md). Nothing is downloaded or
+  installed automatically. Check now or turn this off under ⋮ › Update
+
+## v0.8.1 { #v0-8-1 }
+
+November 2026. Bring your bookmarks over, pick up where you left off, and print.
+
+- **Import bookmarks**: ⋮ › Bookmarks › Import bookmarks lists the Chrome, Edge, Brave, Whale, Vivaldi and Chromium
+  profiles on your computer. Pick one and its bookmarks come over with their folders. From Safari, Firefox or any
+  other browser, import an exported HTML bookmarks file. Bookmarks you already have are skipped
+- **Folders inside folders**: bookmark folders can contain other folders, and open as submenus on the bookmarks bar
+- **Continue where you left off**: HyperTeX reopens last time's tabs. Change this under ⋮ › On startup
+- **Reopen a closed tab** with Ctrl+Shift+T
+- **Print and save as PDF**: Ctrl+P prints the page, and ⋮ › Save as PDF… saves it as a PDF file. Pages printed in the
+  dark theme now come out on white paper
+
+## v0.8.0 { #v0-8-0 }
+
+November 2026. Open local files faster.
+
+- **Open file button** at the left of the address bar (the same as Ctrl+O)
+- **Drag and drop**: drop documents from your file manager anywhere in the window to open them. Drop several at once
+  and the rest open in new tabs
+
 ## v0.7.2 { #v0-7-2 }
 
 November 2026. Fixes opening online documents in the downloaded app.

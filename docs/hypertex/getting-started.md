@@ -76,7 +76,7 @@ Upload the `site` folder to any static host, such as GitHub Pages or Cloudflare.
 ## The viewer window
 
 The viewer is laid out like Google Chrome. From the top: tabs, the toolbar (back, forward, reload, home,
-the address bar and the ⋮ menu), the bookmarks bar, and the page. New tabs and the home button open a start page
+open file, the address bar and the ⋮ menu), the bookmarks bar, and the page. New tabs and the home button open a start page
 with an address box and shortcuts to your bookmarks.
 
 On macOS the tabs sit in the title bar, next to the red, yellow and green buttons, as in Chrome.
@@ -88,6 +88,11 @@ The viewer's menus and messages follow your system language (Korean or English).
 The button at the left of the address bar shows the document's diagnostics, such as errors or compatibility mode.
 Click ☆ at the right to bookmark the page.
 
+To open a file on your computer, click the folder button at the left of the address bar, or drag the file anywhere
+into the window. To bring your bookmarks over from Chrome, Edge or another browser, open ⋮ › Bookmarks ›
+Import bookmarks. HyperTeX reopens your tabs the next time you start it (change this under ⋮ › On startup).
+Right-click an equation to copy its LaTeX source.
+
 ## Viewer shortcuts
 
 On macOS, use Cmd instead of Ctrl.
@@ -95,6 +100,8 @@ On macOS, use Cmd instead of Ctrl.
 | Action | Keys |
 | --- | --- |
 | New tab, close tab | Ctrl+T, Ctrl+W |
+| Reopen closed tab | Ctrl+Shift+T |
+| Open a file | Ctrl+O, or drag it into the window |
 | Switch tabs | Ctrl+Tab, Ctrl+1…9 |
 | Open link in new tab | Middle-click or Ctrl+click |
 | Close a tab | Middle-click the tab |
@@ -105,6 +112,8 @@ On macOS, use Cmd instead of Ctrl.
 | Reload, address bar | Ctrl+R, Ctrl+L |
 | Bookmark this page, show or hide the bookmarks bar | Ctrl+D, Ctrl+Shift+B |
 | Edit the source, save, save as | Ctrl+E, Ctrl+S, Ctrl+Shift+S |
+| Print | Ctrl+P (⋮ › Save as PDF… for a PDF file) |
+| History | Ctrl+H (Cmd+Y on macOS) |
 
 Choose the theme (system, light, dark) and the home page from the ⋮ menu. Local documents you have open redraw
 automatically each time you save them.
